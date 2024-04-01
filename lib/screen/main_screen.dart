@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../screen/quiz/book_list.dart';
 import '../screen/dict_list_screen.dart';
 import '../state_bar/appbar.dart';
 import '../state_bar/bottombar.dart';
@@ -8,7 +9,6 @@ import '../contents/main_content.dart';
 import '../contents/contents.dart';
 import '../state_bar/menu.dart';
 import 'upload_camera.dart';
-import 'quiz/quiz_screen.dart';
 import 'login_screen.dart';
 import '../back_module/sqlclient.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -65,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
             MainContent(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Quiz_Screen()));
+                    MaterialPageRoute(builder: (context) => BookList()));
               },
               imagepath: 'assets/images/mmd_quiz.png',
               contentName: '퀴즈! 퀴즈!',

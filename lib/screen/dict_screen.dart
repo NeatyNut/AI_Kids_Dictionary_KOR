@@ -3,6 +3,9 @@ import '../contents/contents.dart';
 import '../state_bar/appbar.dart';
 import '../state_bar/bottombar.dart';
 import '../style/custom_color.dart';
+import '../back_module/sqlclient.dart';
+import '../screen/login_screen.dart';
+import '../contents/image_down.dart';
 
 class Dict_Screen extends StatefulWidget {
   const Dict_Screen({Key? key}) : super(key: key);
@@ -12,14 +15,41 @@ class Dict_Screen extends StatefulWidget {
 }
 
 class _Dict_ScreenState extends State<Dict_Screen> {
+  String? user_no;
+
+  // 세션 토큰 검사
+  Future<void> _Checktoken() async {
+    String? no = await Token().Gettoken();
+
+    if (no == null) {
+      Navigator.popUntil(context, (route) => route.isFirst);
+      Navigator.pop(context);
+      Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()));
+    } else {
+      setState(() {
+        user_no = no;
+      });}
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _Checktoken();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final Map<String, String?> args = ModalRoute.of(context)!.settings.arguments as Map<String, String?>;
 
     // 가져온 정보 사용하기
-    final String? image = args['image'];
+    final String? mydic_no = args['mydic_no'];
     final String? kor = args['kor'];
     final String? eng = args['eng'];
+    final String? mean = args['mean'];
+
     return Scaffold(
       appBar: Appbar_screen(isMainScreen: false),
       body: SingleChildScrollView(
@@ -44,7 +74,7 @@ class _Dict_ScreenState extends State<Dict_Screen> {
                 ],
                 color: Colors.white,
               ),
-              child: Image.asset(image ?? "", fit: BoxFit.cover,),
+              child: SnapShotImage(user_no:user_no,mydic_no:mydic_no),
             ),
             SizedBox(height: 20),
             Container(
@@ -84,8 +114,7 @@ class _Dict_ScreenState extends State<Dict_Screen> {
                 color: Colors.grey[300],
                 child: Column(
                   children: [
-                    Text(
-                      '하하',
+                    Text(mean!,
                       style: TextStyle(fontSize: 16),
                     ),
                   ],

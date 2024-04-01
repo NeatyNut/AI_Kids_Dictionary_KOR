@@ -23,11 +23,11 @@ class _SnapShotState extends State<SnapShotImage> {
       future: FirebaseClient(user_no: widget.user_no, mydic_no : widget.mydic_no).loadImage(),// null 체크 추가
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Image.memory(snapshot.data!, fit: BoxFit.none,);
+          return Image.memory(snapshot.data!, fit: BoxFit.cover, width: 140, height: 100);
         } else {
           return SizedBox(
-            width: 300,
-            height: 300,
+            width: 140,
+            height: 100,
             child: Center(
               child: CircularProgressIndicator(),
             ),

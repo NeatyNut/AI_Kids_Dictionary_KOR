@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import '../back_module/firebase.dart';
+import '../back_module/sqlclient.dart';
 import '../contents/contents.dart';
 import '../screen/dict_screen.dart';
 import '../state_bar/appbar.dart';
 import '../state_bar/bottombar.dart';
 import '../style/custom_color.dart';
+import '../screen/login_screen.dart';
+import '../contents/image_down.dart';
 
 class DictListScreen extends StatefulWidget {
   @override
@@ -11,16 +15,38 @@ class DictListScreen extends StatefulWidget {
 }
 
 class _DictListScreenState extends State<DictListScreen> {
+  String? user_no;
+  List<Map<String, String?>> PostList=[];
 
-  final List<Map<String, String>> PostList = [
-    {'image': 'assets/images/dog.jpg', 'kor': '강아지', 'eng': 'dog'},
-    {'image': 'assets/images/dog.jpg', 'kor': '고양이', 'eng': 'cat'},
-    {'image': 'assets/images/dog.jpg', 'kor': '호랑이', 'eng': 'tiger'},
-    {'image': 'assets/images/dog.jpg', 'kor': '원숭이', 'eng': 'monkey'},
-    {'image': 'assets/images/dog.jpg', 'kor': '원숭이', 'eng': 'monkey'},
-    {'image': 'assets/images/dog.jpg', 'kor': '원숭이', 'eng': 'monkey'},
-    {'image': 'assets/images/dog.jpg', 'kor': '원숭이', 'eng': 'monkey'}
-  ];
+  // 세션 토큰 검사
+  Future<void> _Checktoken() async {
+    String? no = await Token().Gettoken();
+
+    if (no == null) {
+      Navigator.popUntil(context, (route) => route.isFirst);
+      Navigator.pop(context);
+      Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()));
+    } else {
+      setState(() {
+        user_no = no;
+      });}
+  }
+
+  Future<void> GetList() async {
+    if (user_no==null) {await _Checktoken();}
+    List<Map<String, String?>> Future_PostList = await sqlget().GetMydicList(user_no: user_no);
+    setState(() {
+      PostList = Future_PostList;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    GetList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,9 +112,10 @@ class _DictListScreenState extends State<DictListScreen> {
                 builder: (context) => Dict_Screen(),
                 settings: RouteSettings(
                   arguments: {
-                    'image': item['image'],
-                    'kor': item['kor'],
-                    'eng': item['eng']
+                    'mydic_no': item['mydic_no'],
+                    'kor': item['word_kor'],
+                    'eng': item['word_eng'],
+                    'mean' : item['mean']
                   },
                 ),
               ),
@@ -112,7 +139,7 @@ class _DictListScreenState extends State<DictListScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  child: Image.asset(item['image'] ?? ""),
+                  child: SnapShotImage(user_no:user_no,mydic_no:item['mydic_no']),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10),
@@ -122,14 +149,14 @@ class _DictListScreenState extends State<DictListScreen> {
                       SizedBox(height: 10),
                       Container(
                         child: Text(
-                          item['kor'] ?? "",
+                          item['word_kor'] ?? "",
                           style: TextStyle(fontSize: 12),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 8),
                       Container(
                         child: Text(
-                          item['eng'] ?? "",
+                          item['word_eng'] ?? "",
                           style: TextStyle(fontSize: 12),
                         ),
                       ),
@@ -147,7 +174,11 @@ class _DictListScreenState extends State<DictListScreen> {
                                 borderRadius: BorderRadius.zero,
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () async {
+                              await FirebaseClient(user_no: user_no, mydic_no: item['mydic_no']).remove();
+                              await sqlget().DeleteImageInfo(user_no: user_no, mydic_no: item['mydic_no']);
+                              await GetList();
+                            },
                             child: Text(
                               'X',
                               style: TextStyle(
