@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mmd/back_module/firebase.dart';
-import 'package:mmd/back_module/sqlclient.dart';
+import '../back_module/firebase.dart';
+import '../back_module/sqlclient.dart';
 import '../contents/contents.dart';
 import '../screen/dict_screen.dart';
 import '../state_bar/appbar.dart';
