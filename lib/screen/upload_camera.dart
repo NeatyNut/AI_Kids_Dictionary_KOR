@@ -6,7 +6,6 @@ import '../contents/contents.dart';
 import '../state_bar/appbar.dart';
 import '../state_bar/bottombar.dart';
 import '../style/custom_color.dart';
-import '../back_module/firebase.dart';
 import '../back_module/sqlclient.dart';
 import 'login_screen.dart';
 
@@ -177,12 +176,10 @@ class _UpLoadCameraState extends State<UpLoadCamera> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       onPressed: () async {
-        String? mydic_no = await sqlget().GetNewMyDicNo();
-        FirebaseClient(user_no: user_no,mydic_no: mydic_no).upload(_image!.path);
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => MyCamera2(),
-              settings: RouteSettings(arguments: {'mydic_no':mydic_no})),
+              settings: RouteSettings(arguments: {'path':_image!.path})),
         );
       },
       child: Text(

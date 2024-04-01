@@ -12,6 +12,7 @@ build/
 pubspec.lock
 firebase_options.dart
 sqlclient.dart
+firebase.dart
 google-services.json
 
 # Directory created by dartdoc

@@ -5,11 +5,11 @@ import '../contents/contents.dart';
 import '../state_bar/appbar.dart';
 import '../state_bar/bottombar.dart';
 import '../style/custom_color.dart';
+import 'dart:io';
 import '../back_module/firebase.dart';
 import '../back_module/sqlclient.dart';
 import '../back_module/modelapi.dart';
 import 'login_screen.dart';
-import '../contents/image_down.dart';
 
 class MyCamera2 extends StatefulWidget {
   @override
@@ -18,12 +18,12 @@ class MyCamera2 extends StatefulWidget {
 
 class _MyCamera2State extends State<MyCamera2> {
   String? user_no;
-  String? eng = null;
-  String? label = null;
-  String? dic_no = null;
+  String? label;
+  String? dic_no;
   String? mydic_no;
 
-  // 4. 세션 토큰 검사
+
+  // 세션 토큰 검사
   void Checktoken() async {
     String? no = await Token().Gettoken();
 
@@ -39,43 +39,42 @@ class _MyCamera2State extends State<MyCamera2> {
       });}
   }
 
-  void GetData() async {
-    // mydic_no 넘버 도출
-    String? future_mydic_no = await sqlget().GetNewMyDicNo();
-    setState(() {
-      mydic_no = future_mydic_no;
-    });
+  void GetData(String path) async {
+    //모델api 접근
+    String future_eng = await GetLabel().get_label(path) ?? "오류";
+    late String? future_label;
+    String? future_dic_no;
 
-    // EC2모델 접근
-    // String future_eng = await GetLabel(user_no: user_no, mydic_no: mydic_no)
-    //     .get_label() ?? "오류";
-
-    setState(() {
-      // eng = future_eng.trim();
-    });
-
-    if (eng != "오류") {
+    if (future_eng != "오류") {
       // eng통해 sql 접근
-      String? future_label = await sqlget().GetWordKorByEng(eng: this.eng);
-
-      setState(() {
-        label = future_label;
-      });
+      future_label = await sqlget().GetWordKorByEng(eng: future_eng);
+      future_dic_no = await sqlget().GetNoByEng(eng: future_eng);
     } else {
-      label = "서버 오류";
+      future_label = "서버 오류";
     }
+
+    setState(() {
+      label = future_label;
+      dic_no = future_dic_no;
+    });
+
   }
   @override
   void initState() {
+    // 네비게이터 데이터 받기
     super.initState();
     Checktoken();
-    FirebaseClient(user_no: user_no, mydic_no: mydic_no).getImage();
-    GetData();
-
   }
 
   @override
   Widget build(BuildContext context) {
+    var arguments = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    String path = arguments['path'];
+
+    if (label == null) {
+      GetData(path);
+    }
+
     return Scaffold(
       appBar: Appbar_screen(
         isMainScreen: false,
@@ -102,10 +101,7 @@ class _MyCamera2State extends State<MyCamera2> {
                 )
               ]
             ),
-            child: SnapShotImage(
-              user_no: user_no,
-              mydic_no: mydic_no,
-            ),
+            child: Image.file(File(path)),
           ),
           SizedBox(
             height: 20,
@@ -129,8 +125,6 @@ class _MyCamera2State extends State<MyCamera2> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    FirebaseClient(user_no: user_no, mydic_no: mydic_no)
-                        .remove(); // s3 사진 지우기
                     Navigator.pop(context);
                   },
                   child: Text(
@@ -145,7 +139,23 @@ class _MyCamera2State extends State<MyCamera2> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (dic_no!=null) {
+                      String? mydic_no = await sqlget().GetNewMyDicNo();
+                      await FirebaseClient(user_no: user_no, mydic_no: mydic_no)
+                          .upload(path);
+                      await sqlget().SaveImageInfo(
+                          user_no: user_no, dic_no: dic_no, mydic_no: mydic_no);
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text('저장되었습니다.'),
+                      ));
+                      Navigator.popUntil(context, (route) => route.isFirst);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text('한국어 라벨을 받은 뒤 저장해주시기 바랍니다.'),
+                      ));
+                    }
+                  },
                   child: Text(
                     '저장하기',
                     style: TextStyle(
