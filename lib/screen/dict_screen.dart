@@ -25,12 +25,12 @@ class _Dict_ScreenState extends State<Dict_Screen> {
       Navigator.popUntil(context, (route) => route.isFirst);
       Navigator.pop(context);
       Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LoginScreen()));
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
     } else {
       setState(() {
         user_no = no;
-      });}
+      });
+    }
   }
 
   @override
@@ -39,10 +39,10 @@ class _Dict_ScreenState extends State<Dict_Screen> {
     _Checktoken();
   }
 
-
   @override
   Widget build(BuildContext context) {
-    final Map<String, String?> args = ModalRoute.of(context)!.settings.arguments as Map<String, String?>;
+    final Map<String, String?> args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, String?>;
 
     // 가져온 정보 사용하기
     final String? mydic_no = args['mydic_no'];
@@ -74,7 +74,7 @@ class _Dict_ScreenState extends State<Dict_Screen> {
                 ],
                 color: Colors.white,
               ),
-              child: SnapShotImage(user_no:user_no,mydic_no:mydic_no),
+              child: SnapShotImage(user_no: user_no, mydic_no: mydic_no),
             ),
             SizedBox(height: 20),
             Container(
@@ -98,11 +98,16 @@ class _Dict_ScreenState extends State<Dict_Screen> {
                       fixedSize: Size(100, 60),
                       backgroundColor: CustomColor().yellow(),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)
-                      ),
+                          borderRadius: BorderRadius.circular(20)),
                     ),
                     onPressed: () {},
-                    child: Text('발음듣기'),
+                    child: Text(
+                      '발음듣기',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: CustomColor().text(),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -111,10 +116,10 @@ class _Dict_ScreenState extends State<Dict_Screen> {
             SingleChildScrollView(
               child: Container(
                 width: 300,
-                color: Colors.grey[300],
                 child: Column(
                   children: [
-                    Text(mean!,
+                    Text(
+                      mean!,
                       style: TextStyle(fontSize: 16),
                     ),
                   ],

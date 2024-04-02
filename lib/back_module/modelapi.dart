@@ -10,7 +10,7 @@ class GetLabel {
   static String text_label = Label.labellist.join(",");
 
   // api주소
-  String api_url = "https://c6f5-114-202-17-6.ngrok-free.app/?label=${text_label}" ;
+  String api_url = "https://f0c5-114-202-17-6.ngrok-free.app/?label=${text_label}" ;
 
   // json 송신 후 label return 받기
   Future<String?> get_label(String Image_path) async {
