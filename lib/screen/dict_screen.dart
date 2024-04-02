@@ -6,6 +6,9 @@ import '../style/custom_color.dart';
 import '../back_module/sqlclient.dart';
 import '../screen/login_screen.dart';
 import '../contents/image_down.dart';
+import '../back_module/modelapi.dart';
+import '../back_module/audioplay.dart';
+import 'dart:typed_data';
 
 class Dict_Screen extends StatefulWidget {
   const Dict_Screen({Key? key}) : super(key: key);
@@ -16,6 +19,7 @@ class Dict_Screen extends StatefulWidget {
 
 class _Dict_ScreenState extends State<Dict_Screen> {
   String? user_no;
+  Uint8List? byte;
 
   // 세션 토큰 검사
   Future<void> _Checktoken() async {
@@ -31,6 +35,15 @@ class _Dict_ScreenState extends State<Dict_Screen> {
       setState(() {
         user_no = no;
       });}
+  }
+
+  Future<void> GetbyteAndPlay(String? kor) async {
+    Uint8List? Futurebyte = await GetSound(text:kor!).get_voice();
+    setState(() {
+      byte = Futurebyte;
+    });
+
+    byte!=null ? audioplay().byteplay(byte!):print("실패");
   }
 
   @override
@@ -101,7 +114,13 @@ class _Dict_ScreenState extends State<Dict_Screen> {
                         borderRadius: BorderRadius.circular(20)
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      if (byte==null) {
+                        GetbyteAndPlay(kor!);
+                      }
+
+                      byte!=null ? audioplay().byteplay(byte!):print("실패");
+                    },
                     child: Text('발음듣기'),
                   ),
                 ],
