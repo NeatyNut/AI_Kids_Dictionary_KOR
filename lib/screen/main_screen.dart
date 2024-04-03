@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import '../screen/profile_screen.dart';
 import '../screen/quiz/book_list.dart';
 import '../screen/dict_list_screen.dart';
 import '../state_bar/appbar.dart';
@@ -21,6 +23,30 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  String? user_no;
+
+  // 4. 세션 토큰 검사
+  void Checktoken() async {
+    String? no = await Token().Gettoken();
+
+    if (no == null) {
+      Navigator.popUntil(context, (route) => route.isFirst);
+      Navigator.pop(context);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
+    } else {
+      setState(() {
+        user_no = no;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Checktoken();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
             MainContent(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MainScreen()));
+                    MaterialPageRoute(builder: (context) => ProfileScreen()));
               },
               imagepath: 'assets/images/mmd_rabbit.png',
               contentName: '나의 프로필',
@@ -86,15 +112,43 @@ class _MainScreenState extends State<MainScreen> {
             SizedBox(
               height: 30,
             ),
-            ElevatedButton(onPressed: () async {
-              // 로그아웃 기능
-              Token().Deltoken();
-              await GoogleSignIn().signOut();
-              Navigator.popUntil(context, (route) => route.isFirst);
-              Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()));
-            }, child: Text('히히')),
+            Container(
+              width: 320,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    child: Text(
+                      '나만의 사전',
+                      style: TextStyle(
+                        color: CustomColor().red(),
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  // Main_Screen_Dict.Main_FutureBuilder(context, user_no),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(
+                onPressed: () async {
+                  // 로그아웃 기능
+                  Token().Deltoken();
+                  await GoogleSignIn().signOut();
+                  Navigator.popUntil(context, (route) => route.isFirst);
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
+                child: Text('히히')),
             SizedBox(
               height: 100,
             )

@@ -16,7 +16,7 @@ class DictListScreen extends StatefulWidget {
 
 class _DictListScreenState extends State<DictListScreen> {
   String? user_no;
-  List<Map<String, String?>> PostList=[];
+  List<Map<String, String?>> PostList = [];
 
   // 세션 토큰 검사
   Future<void> _Checktoken() async {
@@ -26,17 +26,20 @@ class _DictListScreenState extends State<DictListScreen> {
       Navigator.popUntil(context, (route) => route.isFirst);
       Navigator.pop(context);
       Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LoginScreen()));
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
     } else {
       setState(() {
         user_no = no;
-      });}
+      });
+    }
   }
 
   Future<void> GetList() async {
-    if (user_no==null) {await _Checktoken();}
-    List<Map<String, String?>> Future_PostList = await sqlget().GetMydicList(user_no: user_no);
+    if (user_no == null) {
+      await _Checktoken();
+    }
+    List<Map<String, String?>> Future_PostList =
+        await sqlget().GetMydicList(user_no: user_no);
     setState(() {
       PostList = Future_PostList;
     });
@@ -115,7 +118,7 @@ class _DictListScreenState extends State<DictListScreen> {
                     'mydic_no': item['mydic_no'],
                     'kor': item['word_kor'],
                     'eng': item['word_eng'],
-                    'mean' : item['mean']
+                    'mean': item['mean']
                   },
                 ),
               ),
@@ -139,7 +142,8 @@ class _DictListScreenState extends State<DictListScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  child: SnapShotImage(user_no:user_no,mydic_no:item['mydic_no']),
+                  child: SnapShotImage(
+                      user_no: user_no, mydic_no: item['mydic_no']),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10),
@@ -174,10 +178,8 @@ class _DictListScreenState extends State<DictListScreen> {
                                 borderRadius: BorderRadius.zero,
                               ),
                             ),
-                            onPressed: () async {
-                              await FirebaseClient(user_no: user_no, mydic_no: item['mydic_no']).remove();
-                              await sqlget().DeleteImageInfo(user_no: user_no, mydic_no: item['mydic_no']);
-                              await GetList();
+                            onPressed: () {
+                              DleteDialog(item);
                             },
                             child: Text(
                               'X',
@@ -199,5 +201,71 @@ class _DictListScreenState extends State<DictListScreen> {
         SizedBox(height: 40),
       ],
     );
+  }
+
+  @override
+  void DleteDialog(Map<String, String?> item) {
+    showDialog(
+        context: context,
+        //barrierDismissible - Dialog를 제외한 다른 화면 터치 x
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            // RoundedRectangleBorder - Dialog 화면 모서리 둥글게 조절
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
+            backgroundColor: Color(0xFFFFFFFF),
+            //Dialog Main Title
+            title: Column(
+              children: <Widget>[
+                new Text("사전 지우기"),
+              ],
+            ),
+            //
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "진짜... 삭제 할거에요?",
+                ),
+              ],
+            ),
+            actions: <Widget>[
+              new TextButton(
+                child: new Text(
+                  "삭제",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: CustomColor().red(),
+                  ),
+                ),
+                onPressed: () async {
+                  await FirebaseClient(
+                          user_no: user_no, mydic_no: item['mydic_no'])
+                      .remove();
+                  await sqlget().DeleteImageInfo(
+                      user_no: user_no, mydic_no: item['mydic_no']);
+                  await GetList();
+                  Navigator.pop(context);
+                },
+              ),
+              new TextButton(
+                child: new Text(
+                  "취소",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: CustomColor().blue(),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        });
   }
 }
