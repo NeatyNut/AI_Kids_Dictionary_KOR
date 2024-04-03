@@ -115,10 +115,10 @@ class _DictListScreenState extends State<DictListScreen> {
                 builder: (context) => Dict_Screen(),
                 settings: RouteSettings(
                   arguments: {
-                    'mydic_no': item['mydic_no'],
-                    'kor': item['word_kor'],
-                    'eng': item['word_eng'],
-                    'mean': item['mean']
+                    'mydic_no': item[sqlget.mydic_db_col['no']],
+                    'kor': item[sqlget.dic_db_col['kor']],
+                    'eng': item[sqlget.dic_db_col['eng']],
+                    'mean': item[sqlget.dic_db_col['mean']],
                   },
                 ),
               ),
@@ -143,7 +143,7 @@ class _DictListScreenState extends State<DictListScreen> {
               children: [
                 Container(
                   child: SnapShotImage(
-                      user_no: user_no, mydic_no: item['mydic_no']),
+                      user_no: user_no, mydic_no: item[sqlget.mydic_db_col['no']]),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10),
@@ -243,10 +243,10 @@ class _DictListScreenState extends State<DictListScreen> {
                 ),
                 onPressed: () async {
                   await FirebaseClient(
-                          user_no: user_no, mydic_no: item['mydic_no'])
+                          user_no: user_no, mydic_no: item[sqlget.mydic_db_col['no']])
                       .remove();
                   await sqlget().DeleteImageInfo(
-                      user_no: user_no, mydic_no: item['mydic_no']);
+                      user_no: user_no, mydic_no: item[sqlget.mydic_db_col['no']]);
                   await GetList();
                   Navigator.pop(context);
                 },
