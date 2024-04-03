@@ -52,6 +52,7 @@ dependencies:
   firebase_auth: ^4.18.0
   youtube_player_flutter: ^9.0.0
   pull_to_refresh: ^2.0.0
+  audioplayers: ^6.0.0
 
 dev_dependencies:
   flutter_test:
