@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mmd/screen/quiz/video_page.dart';
+import 'package:mmd/back_module/sqlclient.dart';
+import 'package:mmd/contents/image_down.dart';
+import '../quiz/video_page.dart';
 import '../../contents/contents.dart';
 import '../../state_bar/appbar.dart';
 import '../../state_bar/bottombar.dart';
-import 'quiz_screen.dart';
 
 class BookList extends StatefulWidget {
   const BookList({super.key});
@@ -13,62 +14,20 @@ class BookList extends StatefulWidget {
 }
 
 class _BookListState extends State<BookList> {
-  final PostList = [
-    {
-      'image': 'assets/images/b1.png',
-      'video' : 'G5b_az5yeLI',
-      'title': '토끼와 거북이',
-      'age': '4~7세',
-      'lang': '한국어',
-      'time': '2분 17초',
-      'source': '세이브 더 칠드런',
-    },
-    {
-      'image': 'assets/images/b2.png',
-      'video' : 'kHP8KCPO2mU',
-      'title': '해와 달이 된 오누이',
-      'age': '4~7세',
-      'lang': '한국어',
-      'time': '2분 15초',
-      'source': '세이브 더 칠드런'
-    },
-    {
-      'image': 'assets/images/b3.png',
-      'video' : 'fbptwUqi-YA',
-      'title': '금도끼와 은도끼',
-      'age': '4~7세',
-      'lang': '한국어',
-      'time': '2분 30초',
-      'source': '세이브 더 칠드런'
-    },
-    {
-      'image': 'assets/images/b1.png',
-      'video' : 'G5b_az5yeLI',
-      'title': '토끼와 거북이',
-      'age': '4~7세',
-      'lang': '한국어',
-      'time': '2분 17초',
-      'source': '세이브 더 칠드런'
-    },
-    {
-      'image': 'assets/images/b2.png',
-      'video' : 'kHP8KCPO2mU',
-      'title': '해와 달이 된 오누이',
-      'age': '4~7세',
-      'lang': '한국어',
-      'time': '2분 15초',
-      'source': '세이브 더 칠드런'
-    },
-    {
-      'image': 'assets/images/b3.png',
-      'video' : 'fbptwUqi-YA',
-      'title': '금도끼와 은도끼',
-      'age': '4~7세',
-      'lang': '한국어',
-      'time': '2분 30초',
-      'source': '세이브 더 칠드런'
-    },
-  ];
+  List<Map<String, String?>>? PostList;
+
+  Future<void> Get_Book_List() async {
+    List<Map<String, String?>> Future_PostList = await sqlget().GetTaleList();
+    setState(() {
+      PostList = Future_PostList;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Get_Book_List();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,25 +40,25 @@ class _BookListState extends State<BookList> {
             SizedBox(
               height: 30,
             ),
-            ListView.builder(
+            PostList != null ? ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: PostList.length,
+              itemCount: PostList!.length,
               itemBuilder: (BuildContext context, int index) {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _buildListItem(PostList[index]),
+                    _buildListItem(PostList![index]),
                     SizedBox(
                       height: 20,
                     ),
                   ],
                 );
               },
-            ),
+            ) : Container(child: Text(''),),
             SizedBox(
               height: 60,
-            )
+            ),
           ],
         ),
       ),
@@ -113,10 +72,13 @@ class _BookListState extends State<BookList> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => VideoScreen(),
-              settings: RouteSettings(arguments: {'video':item['video']}))
-        );
+            context,
+            MaterialPageRoute(
+                builder: (context) => VideoScreen(),
+                settings: RouteSettings(arguments: {
+                  'video': item[sqlget.book_db_col['video']],
+                  'title': item[sqlget.book_db_col['title']]
+                })));
       },
       child: Container(
         width: 360,
@@ -130,7 +92,7 @@ class _BookListState extends State<BookList> {
         ]),
         child: Row(
           children: [
-            Image.asset(item['image']!),
+            SnapShotImage(mydic_no: 'book_${item[sqlget.book_db_col['no']]}', user_no: 'book_images'),
             SizedBox(
               width: 10,
             ),
@@ -141,7 +103,7 @@ class _BookListState extends State<BookList> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    item['title']!,
+                    item[sqlget.book_db_col['title']] ?? "",
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
@@ -151,7 +113,7 @@ class _BookListState extends State<BookList> {
                     height: 8,
                   ),
                   Text(
-                    '${item['age']} / ${item['lang']}',
+                    '${item[sqlget.book_db_col['age']]} / ${item[sqlget.book_db_col['lang']]}',
                     style: TextStyle(
                       fontSize: 10,
                     ),
@@ -160,7 +122,7 @@ class _BookListState extends State<BookList> {
                     height: 8,
                   ),
                   Text(
-                    item['time']!,
+                    item[sqlget.book_db_col['playtime']] ?? "",
                     style: TextStyle(
                       fontSize: 10,
                     ),
@@ -169,7 +131,7 @@ class _BookListState extends State<BookList> {
                     height: 8,
                   ),
                   Text(
-                    item['source']!,
+                    item[sqlget.book_db_col['source']] ?? "",
                     style: TextStyle(
                       fontSize: 10,
                     ),

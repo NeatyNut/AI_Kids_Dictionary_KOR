@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'screen/login_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import '../back_module/firebase.dart';
+import 'back_module/firebase.dart';
+import 'package:flutter/services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseInit().SetFirebase();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MyApp());
 }
 

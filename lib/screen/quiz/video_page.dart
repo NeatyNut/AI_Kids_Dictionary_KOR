@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mmd/style/custom_color.dart';
+import 'quiz_screen.dart';
 import '../../contents/contents.dart';
 import '../../state_bar/appbar.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -54,6 +56,27 @@ class _VideoScreenState extends State<VideoScreen> {
               progressColors: ProgressBarColors(playedColor: Colors.red),
             ),
           ),
+          SizedBox(
+            height: 80,
+          ),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: CustomColor().yellow(),
+                foregroundColor: CustomColor().text(),
+                fixedSize: Size(130, 60),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Quiz_Screen(),
+                        settings: RouteSettings(
+                            arguments: {'title': args['title']})));
+              },
+              child: Text('퀴즈 풀러가기',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),))
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

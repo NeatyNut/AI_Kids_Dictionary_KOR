@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'question_list.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({
     Key? key,
     required this.totalScore,
     required this.resetQuiz,
+    required this.questionList,
   }) : super(key: key);
 
   final int totalScore;
   final Function resetQuiz;
+  final List<Map<String, dynamic>> questionList;
 
   @override
   Widget build(BuildContext context) {
