@@ -1,37 +1,104 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mmd/contents/contents.dart';
+import 'package:mmd/screen/quiz/book_list.dart';
+import 'package:mmd/screen/quiz/quiz_screen.dart';
+import '../../style/custom_color.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({
     Key? key,
     required this.totalScore,
-    required this.resetQuiz,
     required this.questionList,
   }) : super(key: key);
 
   final int totalScore;
-  final Function resetQuiz;
   final List<Map<String, dynamic>> questionList;
 
   @override
   Widget build(BuildContext context) {
     String resultMessage;
+    String resultImage;
 
     if (totalScore == questionList.length) {
       resultMessage = '헉 다 맞추셨어요!';
     } else if (totalScore >= questionList.length / 2) {
       resultMessage = '아쉽게도 조금 틀렸네요 다음엔 할 수 있어요!';
-    } else{
+    } else {
       resultMessage = '어려웠나봐요 우리 다시 공부해서 풀어봐요';
     }
+
+    if (totalScore == questionList.length) {
+      resultImage = 'assets/images/result_3.png';
+    } else if (totalScore >= questionList.length / 2) {
+      resultImage = 'assets/images/result_2.png';
+    } else {
+      resultImage = 'assets/images/result_1.png';
+    }
+
     return Center(
       child: Column(
         children: [
-          SizedBox(height: 150,),
-          Text(resultMessage),
-          SizedBox(height: 100,),
+          TitleBanner(text: '퀴즈! 퀴즈!'),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            width: 320,
+            height: 300,
+            decoration: BoxDecoration(color: Colors.white, boxShadow: [
+              BoxShadow(
+                  offset: Offset(0, 0),
+                  spreadRadius: 0,
+                  blurRadius: 4,
+                  color: Colors.black.withOpacity(0.1))
+            ]),
+            child: Stack(
+              children: [
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: Image.asset(resultImage),
+                ),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  top: 10,
+                  child: Center(
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 160,
+                      height: 200,
+                      child: Text(resultMessage, style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16
+                      ),),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
           ElevatedButton(
-            onPressed: () => resetQuiz(),
-            child: Text("reset quiz"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: CustomColor().blue(),
+              fixedSize: Size(200, 60),
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20)
+              ),
+            ),
+            onPressed: (){
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/main', // 이동할 목표 route의 이름
+                ModalRoute.withName('/main'), // 팝할 조건을 지정하는 predicate
+              );
+            },
+            child: Text("메인화면으로 돌아가기"),
           ),
         ],
       ),

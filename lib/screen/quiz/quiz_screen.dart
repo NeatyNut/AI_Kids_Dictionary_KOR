@@ -27,13 +27,6 @@ class _Quiz_ScreenState extends State<Quiz_Screen> {
     print(totalScore);
   }
 
-  void resetQuiz() {
-    setState(() {
-      questionIndex = 0;
-      totalScore = 0;
-    });
-  }
-
   void loadQuestionList(String title) async {
     setState(() {
       isLoading = true; // 데이터 로딩 중임을 표시
@@ -67,9 +60,8 @@ class _Quiz_ScreenState extends State<Quiz_Screen> {
           : ResultScreen(
         totalScore: totalScore,
         questionList: questionList,
-        resetQuiz: resetQuiz,
       )
-          : Container(child: Text('히히')),
+          : Container(child: Text('')),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: BottomFAB(),
       bottomNavigationBar: BottomScreen(),

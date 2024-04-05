@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mmd/screen/main_screen.dart';
+import 'package:mmd/screen/quiz/book_list.dart';
 import 'screen/login_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -41,6 +43,10 @@ class MyApp extends StatelessWidget {
         //backgroundColor: Colors.white,
         //duration: 3000,
       ),
+      routes: {
+        '/main' : (context) => MainScreen(),
+        '/book' : (context) => BookList(),
+      },
     );
   }
 }

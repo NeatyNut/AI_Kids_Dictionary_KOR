@@ -47,7 +47,7 @@ class _Question_ScreenState extends State<Question_Screen> {
                 SingleChildScrollView(
                   child: Container(
                     width: double.infinity,
-                    color: Colors.grey[300],
+                    color: Colors.transparent,
                     child: Column(
                       children: [
                         Text(widget.questionList[widget.questionIndex]['question']),
@@ -59,7 +59,7 @@ class _Question_ScreenState extends State<Question_Screen> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: CustomColor().green(),
-                    foregroundColor: CustomColor().text(),
+                    foregroundColor: Colors.white,
                     fixedSize: Size(300, 60),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
