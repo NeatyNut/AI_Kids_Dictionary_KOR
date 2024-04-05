@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mmd/contents/image_down.dart';
-import 'package:mmd/screen/profile_screen.dart';
+import '../contents/image_down.dart';
+import '../screen/profile_screen.dart';
 import '../back_module/sqlclient.dart';
 import '../style/custom_color.dart';
 

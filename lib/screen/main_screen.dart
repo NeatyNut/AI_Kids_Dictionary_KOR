@@ -59,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TitleBanner(
-              text: 'My Memory Dictionary',
+              text: '메인 화면',
             ),
             SizedBox(
               height: 30,

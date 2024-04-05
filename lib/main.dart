@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:mmd/screen/main_screen.dart';
+import 'package:mmd/screen/quiz/book_list.dart';
 import 'screen/login_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import '../back_module/firebase.dart';
+import 'back_module/firebase.dart';
+import 'package:flutter/services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseInit().SetFirebase();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MyApp());
 }
 
@@ -36,6 +43,10 @@ class MyApp extends StatelessWidget {
         //backgroundColor: Colors.white,
         //duration: 3000,
       ),
+      routes: {
+        '/main' : (context) => MainScreen(),
+        '/book' : (context) => BookList(),
+      },
     );
   }
 }
