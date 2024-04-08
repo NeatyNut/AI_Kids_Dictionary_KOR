@@ -225,16 +225,13 @@ class sqlget {
   // [dic_db_col] 2. 한국단어
   Future<String?> GetWordKorByEng({required String? eng}) async {
     List<Map<String, String?>> result = await _select("Select ${dic_db_col['kor']} From ${dic_db} Where ${dic_db_col['eng']} like '$eng'");
-    print('GetWordKorByEng${result}');
     // 영단어는 무결하다는 가정!
     return result[0]['${dic_db_col['kor']}'];
   }
 
   // [dic_db_col] 3. dic넘버
   Future<String?> GetNoByEng({required String? eng}) async {
-    print("Select ${dic_db_col['no']} From ${dic_db} Where ${dic_db_col['eng']} like '$eng'");
     List<Map<String, String?>> result = await _select("Select ${dic_db_col['no']} From ${dic_db} Where ${dic_db_col['eng']} like '$eng'");
-    print('GetNoByEng${result}');
     // 영단어는 무결하다는 가정!
     return result[0]['${dic_db_col['no']}'];
   }
