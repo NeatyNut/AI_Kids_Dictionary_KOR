@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mmd/contents/contents.dart';
 import 'package:mmd/contents/image_down.dart';
 import 'package:mmd/state_bar/appbar.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../style/custom_color.dart';
 import '../back_module/sqlclient.dart';
 import '../back_module/firebase.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'login_screen.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -21,8 +21,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   XFile? _image;
   final ImagePicker _picker = ImagePicker();
   String? user_no;
+  String? username;
+  String? userbirth;
+  String? usergender;
 
-  void Checktoken() async {
+  Future<void> Checktoken() async {
     String? no = await Token().Gettoken();
 
     if (no == null) {
@@ -50,10 +53,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
+  Future<void> GetUserInfo() async {
+    Map<String, String?> _userinfo = await sqlget().GetUserInfo(user_no: this.user_no);
+    setState(() {
+      username = _userinfo[sqlget.user_db_col['name']];
+      userbirth = _userinfo[sqlget.user_db_col['birth']];
+      usergender = sqlget.map_gender[_userinfo[sqlget.user_db_col['gender']]];
+    });
+  }
+
+  Future<void> initprofile() async {
+    await Checktoken();
+    await GetUserInfo();
+  }
+
+
   @override
   void initState() {
     super.initState();
-    Checktoken();
+    initprofile();
   }
 
   @override
@@ -115,19 +133,85 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('이름 : username'),
-                          Text('생일 : userbirth'),
-                          Text('성별 : usergender'),
+                          Text('이름 : ${username ?? "-"}'),
+                          Text('생일 : ${userbirth  ?? "-"}'),
+                          Text('성별 : ${usergender ?? "-"}'),
                         ],
                       ),
                     )
                   ],
                 ),
               ),
+          SizedBox(
+            height: 30,
+          ),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: CustomColor().red(),
+                  fixedSize: Size(130, 60),
+                  shape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                ),
+                onPressed: () {
+                  LogoutDialog();
+                },
+                child: Text(
+                  "로그아웃",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white
+                  ),
+                ))
             ],
           ),
         ),
       );
+  }
+
+  void LogoutDialog() {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            backgroundColor: Colors.white,
+            title: Column(
+              children: [
+                Text('로그아웃'),
+              ],
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('로그아웃 하시겠습니까?'),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () async {
+                  Token().Deltoken();
+                  await GoogleSignIn().signOut();
+                  Navigator.popUntil(context, (route) => route.isFirst);
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
+                child: Text('로그아웃',style: TextStyle(color:CustomColor().red()),),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('취소',style: TextStyle(color:CustomColor().blue())),
+              ),
+            ],
+          );
+        });
   }
 
   void DeleteDialog() {
