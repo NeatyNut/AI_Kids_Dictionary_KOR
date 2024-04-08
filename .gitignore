@@ -11,10 +11,8 @@ build/
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
 firebase_options.dart
-sqlclient.dart
-firebase.dart
 google-services.json
-modelapi.dart
+setting.dart
 
 # Directory created by dartdoc
 # If you don't generate documentation locally you can remove this line.
@@ -108,4 +106,3 @@ lib/generated_plugin_registrant.dart
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 # End of https://www.toptal.com/developers/gitignore/api/flutter,firebase,dart
-lib/back_module/firebase.dart

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mmd/contents/contents.dart';
 import 'package:mmd/contents/image_down.dart';
 import 'package:mmd/state_bar/appbar.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../style/custom_color.dart';
 import '../back_module/sqlclient.dart';
 import '../back_module/firebase.dart';
@@ -21,8 +20,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   XFile? _image;
   final ImagePicker _picker = ImagePicker();
   String? user_no;
+  String? username;
+  String? userbirth;
+  String? usergender;
 
-  void Checktoken() async {
+  Future<void> Checktoken() async {
     String? no = await Token().Gettoken();
 
     if (no == null) {
@@ -50,10 +52,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
+  Future<void> GetUserInfo() async {
+    Map<String, String?> _userinfo = await sqlget().GetUserInfo(user_no: this.user_no);
+    setState(() {
+      username = _userinfo[sqlget.user_db_col['name']];
+      userbirth = _userinfo[sqlget.user_db_col['birth']];
+      usergender = sqlget.map_gender[_userinfo[sqlget.user_db_col['gender']]];
+    });
+  }
+
+  Future<void> initprofile() async {
+    await Checktoken();
+    await GetUserInfo();
+  }
+
+
   @override
   void initState() {
     super.initState();
-    Checktoken();
+    initprofile();
   }
 
   @override
@@ -115,9 +132,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('이름 : username'),
-                          Text('생일 : userbirth'),
-                          Text('성별 : usergender'),
+                          Text('이름 : ${username ?? "-"}'),
+                          Text('생일 : ${userbirth  ?? "-"}'),
+                          Text('성별 : ${usergender ?? "-"}'),
                         ],
                       ),
                     )
