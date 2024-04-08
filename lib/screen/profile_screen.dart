@@ -8,6 +8,7 @@ import '../back_module/firebase.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'login_screen.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -141,10 +142,76 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
+          SizedBox(
+            height: 30,
+          ),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: CustomColor().red(),
+                  fixedSize: Size(130, 60),
+                  shape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                ),
+                onPressed: () {
+                  LogoutDialog();
+                },
+                child: Text(
+                  "로그아웃",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white
+                  ),
+                ))
             ],
           ),
         ),
       );
+  }
+
+  void LogoutDialog() {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            backgroundColor: Colors.white,
+            title: Column(
+              children: [
+                Text('로그아웃'),
+              ],
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('로그아웃 하시겠습니까?'),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () async {
+                  Token().Deltoken();
+                  await GoogleSignIn().signOut();
+                  Navigator.popUntil(context, (route) => route.isFirst);
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
+                child: Text('로그아웃',style: TextStyle(color:CustomColor().red()),),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('취소',style: TextStyle(color:CustomColor().blue())),
+              ),
+            ],
+          );
+        });
   }
 
   void DeleteDialog() {
