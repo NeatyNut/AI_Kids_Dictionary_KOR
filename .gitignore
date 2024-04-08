@@ -10,7 +10,6 @@
 build/
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
-firebase_options.dart
 google-services.json
 setting.dart
 
