@@ -92,13 +92,14 @@ class ResultScreen extends StatelessWidget {
               ),
             ),
             onPressed: (){
+              // Stack을 다 날리면서 원하는 페이지로 이동하기 위해
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                '/main', // 이동할 목표 route의 이름
-                ModalRoute.withName('/main'), // 팝할 조건을 지정하는 predicate
+                '/book', // 이동할 목표 route의 이름
+                ModalRoute.withName('/book'), // 팝할 조건을 지정하는 predicate
               );
             },
-            child: Text("메인화면으로 돌아가기"),
+            child: Text("동화목록으로 돌아가기"),
           ),
         ],
       ),

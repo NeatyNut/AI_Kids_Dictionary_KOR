@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Appbar_screen(isMainScreen: false),
+      appBar: Appbar_screen(isMainScreen: false, isBackButtonVisible: false),
       body: SingleChildScrollView(
           child: Column(
             children: [

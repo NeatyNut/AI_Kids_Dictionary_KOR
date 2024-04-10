@@ -25,7 +25,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   String? user_no;
 
-  // 4. 세션 토큰 검사
+  // 세션 토큰 검사
   void Checktoken() async {
     String? no = await Token().Gettoken();
 
@@ -50,13 +50,20 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appbar 들어갈 자리
+      // <-- Appbar -->
       appBar: Appbar_screen(isMainScreen: true),
+      // true 일경우 Menu Button
       drawer: MenuScreen(),
+      // Menu Button을 Click 할경우 Drawer가 실행됨
+
+      // <-- body -->
       body: SingleChildScrollView(
+        // 전체크기의 범주를 벗어나면 Overflowing 현상이 생겨 Scroll 기능 추가
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
+
+          // <-- Contents -->
           children: [
             TitleBanner(
               text: '메인 화면',
@@ -112,50 +119,41 @@ class _MainScreenState extends State<MainScreen> {
             SizedBox(
               height: 30,
             ),
-            Container(
-              width: 320,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Text(
-                      '나만의 사전',
-                      style: TextStyle(
-                        color: CustomColor().red(),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  // Main_Screen_Dict.Main_FutureBuilder(context, user_no),
-                ],
-              ),
-            ),
+            // Container(
+            //   width: 320,
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.start,
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            // Container(
+            //   child: Text(
+            //     '나만의 사전',
+            //     style: TextStyle(
+            //       color: CustomColor().red(),
+            //       fontWeight: FontWeight.w700,
+            //       fontSize: 20,
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 30,
+            // ),
+            // Main_Screen_Dict.Main_FutureBuilder(context, user_no),
+            //     ],
+            //   ),
+            // ),
             SizedBox(
-              height: 30,
-            ),
-            ElevatedButton(
-                onPressed: () async {
-                  // 로그아웃 기능
-                  Token().Deltoken();
-                  await GoogleSignIn().signOut();
-                  Navigator.popUntil(context, (route) => route.isFirst);
-                  Navigator.pop(context);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
-                },
-                child: Text('히히')),
-            SizedBox(
-              height: 100,
+              height: 60,
             )
           ],
         ),
       ),
-      //floating Button + bottom Bar 들어갈 자리
+
+      // <-- Bottom NavigationBar -->
+      /*
+      * Floating Action Button 과 BottomNavigationBar가 공존하는 형태를 만들기위해
+      * FloatingActionButtonLocation을 CenterDocked로 BottomBar의 부분을 차지하게 만듦
+      * */
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: BottomFAB(),
       bottomNavigationBar: BottomScreen(),
