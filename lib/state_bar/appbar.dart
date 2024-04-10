@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mmd/screen/main_screen.dart';
 import '../contents/image_down.dart';
 import '../screen/profile_screen.dart';
 import '../back_module/sqlclient.dart';
@@ -6,9 +7,11 @@ import '../style/custom_color.dart';
 
 class Appbar_screen extends StatefulWidget implements PreferredSizeWidget {
   final bool isMainScreen;
+  final bool isBackButtonVisible;
 
   Appbar_screen({
     required this.isMainScreen,
+    this.isBackButtonVisible = true,
   });
 
   @override
@@ -49,9 +52,9 @@ class _Appbar_screenState extends State<Appbar_screen> {
       ),
       centerTitle: true,
       leading: widget.isMainScreen
+      // isMainScreen 값을 True로 주면 Menu, False로 주면 Backarrow
           ? _buildMenuButton(context)
           : _buildBackButton(context),
-      // 삼항 연산자 boolean 조건 ? 무엇True : 무엇False
       actions: <Widget>[
         GestureDetector(
           onTap: () {
@@ -71,7 +74,6 @@ class _Appbar_screenState extends State<Appbar_screen> {
     );
   }
 
-  // 메뉴 버튼 생성
   Widget _buildMenuButton(BuildContext context) {
     return IconButton(
       icon: Icon(
@@ -85,8 +87,9 @@ class _Appbar_screenState extends State<Appbar_screen> {
     );
   }
 
-  // 뒤로가기 버튼 생성
   Widget _buildBackButton(BuildContext context) {
+    // 변수값으로 isBackButtonVisible 값을 True 로 주면 pop, false를 주면 pushAndRemovUntil을 주게 된다.
+    // pushAndRemoveUntil은 페이지 이동을 한뒤 Stack개념을 다 없어지게 해준다.
     return IconButton(
       icon: Icon(
         Icons.arrow_back,
@@ -94,7 +97,15 @@ class _Appbar_screenState extends State<Appbar_screen> {
         color: CustomColor().blue(),
       ),
       onPressed: () {
-        Navigator.pop(context); // 이전 화면으로 이동
+        if (widget.isBackButtonVisible) {
+          Navigator.pop(context);
+        } else {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => MainScreen()),
+                (route) => false,
+          );
+        }
       },
     );
   }

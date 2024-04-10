@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import '../style/custom_color.dart';
 import 'dart:math';
 
+/*
+* 필드 이름, 힌트, 컨트롤러, 숨김유무를 필수 매개변수로 받으나, 버튼 크기에 따라 사이즈가 달라질 수 있으므로
+* 사이즈 관련은 고정값을 주고, 수정가능하게 모듈화 진행
+* */
 class Register_form extends StatefulWidget {
   final String first_Text;
   final String hint_Text;
@@ -76,6 +80,10 @@ class _Register_formState extends State<Register_form> {
   }
 }
 
+/*
+* 유효성 검사로 인한, validator 부분 추가, 에러메세지가 필요한 객체일경우를 위해 errorText 변수도 추가하였음
+* Validator를 추가하여, 다른 TextFieldForm 과 값이 동일한지 판명 여부를 확인 가능하고, 틀릴 시에 errorText가 나옴
+* */
 class Register_Pwform extends StatefulWidget {
   final String first_Text;
   final String hint_Text;
@@ -151,6 +159,9 @@ class _Register_PwformState extends State<Register_Pwform> {
   }
 }
 
+/*
+* 위에와 동일합니다.
+* */
 class Register_ConfirmPwform extends StatefulWidget {
   final String first_Text;
   final String hint_Text;
@@ -236,12 +247,18 @@ class _Register_ConfirmPwformState extends State<Register_ConfirmPwform> {
   }
 }
 
+/*
+* Radio Box의 Group Value를 Null값으로 시작할 수 있다는 것을 발견하여, 모듈화 진행
+* 남자라는 Value를 선택할시 값이 0, 여자라는 Value를 선택할시 값이 1로 선정되어 표출되고
+* Select 되었을때, Container의 Color를 변경되게 만듦, BottomNavigationBar의 SelectedItem 과 유사하게 구현
+* */
 enum Gender { male, female }
 
 class GenderRadio extends StatefulWidget {
   final Function(int) onGenderSelected; // 선택된 성별을 알려주는 콜백 함수
 
-  const GenderRadio({required this.onGenderSelected, Key? key}) : super(key: key);
+  const GenderRadio({required this.onGenderSelected, Key? key})
+      : super(key: key);
 
   @override
   _GenderRadioState createState() => _GenderRadioState();
@@ -341,6 +358,7 @@ class _GenderRadioState extends State<GenderRadio> {
   }
 }
 
+// 이부분은 회원가입 배경입니다.
 class JoinBack extends StatelessWidget {
   const JoinBack({super.key});
 

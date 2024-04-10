@@ -34,6 +34,7 @@ class _DictListScreenState extends State<DictListScreen> {
     }
   }
 
+  // sql문으로 GetToken에서 받아온 user_no로 PostList를 만드는 코드
   Future<void> GetList() async {
     if (user_no == null) {
       await _Checktoken();
@@ -48,14 +49,14 @@ class _DictListScreenState extends State<DictListScreen> {
   @override
   void initState() {
     super.initState();
-    GetList();
+    GetList(); // 페이지에 들어왔을경우 초기값으로 PostList를 불러옴
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Appbar_screen(isMainScreen: false),
-      body: PostList.isNotEmpty
+      appBar: Appbar_screen(isMainScreen: false, isBackButtonVisible: false),
+      body: PostList.isNotEmpty // PostList에 요소가 존재할경우
           ? SingleChildScrollView(
               child: Column(
                 children: [
@@ -64,15 +65,19 @@ class _DictListScreenState extends State<DictListScreen> {
                   ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
+                    // Overflowing을 방지하나, 이 안에 요소는 별도로 Scroll 되지 않음
                     itemCount: (PostList.length / 2).ceil(),
+                    // 한줄에 2개의 Object가 나오기위해 줄 길이를 반으로 만듦
                     itemBuilder: (BuildContext context, int index) {
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           _buildListItem(PostList[index * 2]),
+                          // 리스트 아이템을 2개씩 나타나게 하기위한 코드
                           SizedBox(width: 40),
                           if (index * 2 + 1 < PostList.length)
                             _buildListItem(PostList[index * 2 + 1]),
+                          // 만약에 홀수 일경우 한개만 나타나게 만들기 위한 코드
                         ],
                       );
                     },
@@ -81,11 +86,12 @@ class _DictListScreenState extends State<DictListScreen> {
               ),
             )
           : Center(
+              // PostList가 비어있을 경우 나타나는 화면
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '사진이 텅텅 비어있어요!',
+                    '사전이 텅텅 비어있어요!',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
@@ -115,6 +121,7 @@ class _DictListScreenState extends State<DictListScreen> {
                 builder: (context) => Dict_Screen(),
                 settings: RouteSettings(
                   arguments: {
+                    // SQL문으로 불러온 데이터를 Dict_Screen에 필요한데이터만 보내기 위한 Route Setting
                     'mydic_no': item[sqlget.mydic_db_col['no']],
                     'kor': item[sqlget.dic_db_col['kor']],
                     'eng': item[sqlget.dic_db_col['eng']],
@@ -142,10 +149,12 @@ class _DictListScreenState extends State<DictListScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
+                  // Storage에 있는 이미지를 불러오기위한 함수
                   child: SnapShotImage(
-                      user_no: user_no, mydic_no: item[sqlget.mydic_db_col['no']]),
+                      user_no: user_no,
+                      mydic_no: item[sqlget.mydic_db_col['no']]),
                 ),
-                Padding(
+                Padding( // null값이 존재한다는 조건으로 ""이 아니라면 데이터 정보값을 호출
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -203,6 +212,7 @@ class _DictListScreenState extends State<DictListScreen> {
     );
   }
 
+  // 데이터 삭제버튼을 눌렀을때 화면에 AlertDialog를 띄우기 위한 코드
   @override
   void DleteDialog(Map<String, String?> item) {
     showDialog(
@@ -242,11 +252,14 @@ class _DictListScreenState extends State<DictListScreen> {
                   ),
                 ),
                 onPressed: () async {
+                  // 삭제한다는 버튼을 눌렀을경우 Storage 및 SQL DB에서 데이터 삭제
                   await FirebaseClient(
-                          user_no: user_no, mydic_no: item[sqlget.mydic_db_col['no']])
+                          user_no: user_no,
+                          mydic_no: item[sqlget.mydic_db_col['no']])
                       .remove();
                   await sqlget().DeleteImageInfo(
-                      user_no: user_no, mydic_no: item[sqlget.mydic_db_col['no']]);
+                      user_no: user_no,
+                      mydic_no: item[sqlget.mydic_db_col['no']]);
                   await GetList();
                   Navigator.pop(context);
                 },

@@ -67,7 +67,7 @@ class GetSound {
     if (response.statusCode == 200) {
       return response.bodyBytes;
     } else {
-      print('요청하는데에 실패해쪙');
+      print('요청하는데에 실패했습니다.');
     }
   }
 }

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import '../style/custom_color.dart';
 
+/*
+* Form을 자동생성하기 위한 모듈화, 어떤 필드인지, 힌트는 어떻게 줄것인지,
+* Controller는 어떤것을 쓸것인지, 숨길것인지 나타낼것인지를 필요 매개변수로 받아
+* 나머지 사이즈 및, 색상은 고정값으로 사용
+* */
 class loginTile extends StatefulWidget {
   final String first_Text;
   final String hint_Text;
@@ -17,6 +22,7 @@ class loginTile extends StatefulWidget {
   @override
   State<loginTile> createState() => _loginTileState();
 }
+
 // 아이디 및 비밀번호 TextField
 class _loginTileState extends State<loginTile> {
   @override
@@ -68,7 +74,8 @@ class _loginTileState extends State<loginTile> {
     );
   }
 }
-// 로그인 화면 회원가입 및 구글 로그인
+
+// 로그인 화면 회원가입 및 구글 로그인 버튼
 class Register extends StatefulWidget {
   final String imagepath;
   final dynamic backcolor;
@@ -123,6 +130,10 @@ class _RegisterState extends State<Register> {
     );
   }
 }
+
+/*
+* 로그인 화면 의 배경은 코드를 간단하게 보여주기위해 모듈을 따로 제작 하였음
+* */
 // 로그인 화면 상단 배경
 class LoginBackTop extends StatelessWidget {
   final Color backcolor;
@@ -164,6 +175,7 @@ class LoginBackTop extends StatelessWidget {
     );
   }
 }
+
 // 로그인 화면 하단 배경
 class LoginBackBottom extends StatelessWidget {
   final Color backcolor;

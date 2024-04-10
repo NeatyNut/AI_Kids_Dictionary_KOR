@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import '../screen/profile_screen.dart';
+import '../screen/quiz/book_list.dart';
 import '../screen/dict_list_screen.dart';
-import '../screen/quiz/quiz_screen.dart';
 import '../screen/upload_camera.dart';
 import '../screen/main_screen.dart';
 import '../style/custom_color.dart';
@@ -56,7 +57,7 @@ class _BottomScreenState extends State<BottomScreen> {
                 visualDensity: VisualDensity.compact,
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MainScreen()));
+                      MaterialPageRoute(builder: (context) => ProfileScreen()));
                 },
               ),
               Spacer(flex: 6),
@@ -82,7 +83,7 @@ class _BottomScreenState extends State<BottomScreen> {
                 visualDensity: VisualDensity.compact,
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Quiz_Screen()));
+                      MaterialPageRoute(builder: (context) => BookList()));
                 },
               ),
             ],
@@ -101,17 +102,6 @@ class BottomFAB extends StatelessWidget {
     return Container(
       width: 80,
       height: 80,
-      // decoration: BoxDecoration(
-      //   borderRadius: BorderRadius.circular(40),
-      //   boxShadow: [
-      //     BoxShadow(
-      //       offset: Offset(0, 0),
-      //       blurRadius: 4,
-      //       spreadRadius: 2,
-      //       color: Colors.black.withOpacity(0.1),
-      //     ),
-      //   ],
-      // ),
       child: FloatingActionButton(
         shape: CircleBorder(eccentricity: 1),
         backgroundColor: CustomColor().red(),

@@ -23,6 +23,7 @@ class Question_Screen extends StatefulWidget {
 
 class _Question_ScreenState extends State<Question_Screen> {
   late final audioplay _audioPlayer;
+  // 각 버튼의 Color를 빌더로 나타내기위해 List형식으로 구성
   final List<Color> color_list = [
     CustomColor().green(),
     CustomColor().blue(),
@@ -40,6 +41,7 @@ class _Question_ScreenState extends State<Question_Screen> {
 
   @override
   Widget build(BuildContext context) {
+    // 실핼될때 자동으로 TTS가 나오지않는 현상을 발견하여 FutureBuilder를 사용하여 컨텐츠 자체를 ReBuild 하는 방식
     return FutureBuilder<void>(
       future: _ttsFuture,
       builder: (context, snapshot) {

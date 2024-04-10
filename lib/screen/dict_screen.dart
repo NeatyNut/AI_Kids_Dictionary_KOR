@@ -36,7 +36,7 @@ class _Dict_ScreenState extends State<Dict_Screen> {
         user_no = no;
       });}
   }
-
+  // 발음듣기 버튼을 눌렀을경우 실행될 함수
   Future<void> GetbyteAndPlay(String? kor) async {
     Uint8List? Futurebyte = await GetSound(text:kor!).get_voice();
     setState(() {
@@ -52,7 +52,7 @@ class _Dict_ScreenState extends State<Dict_Screen> {
     _Checktoken();
   }
 
-
+  // DictListScreen에서 받아온 정보를 사용하기 위한 args변수 정의
   @override
   Widget build(BuildContext context) {
     final Map<String, String?> args = ModalRoute.of(context)!.settings.arguments as Map<String, String?>;
@@ -87,6 +87,7 @@ class _Dict_ScreenState extends State<Dict_Screen> {
                 ],
                 color: Colors.white,
               ),
+              // Storage 에 저장된 이미지를 불러오는 코드
               child: SnapShotImage(user_no:user_no,mydic_no:mydic_no),
             ),
             SizedBox(height: 20),
@@ -116,10 +117,10 @@ class _Dict_ScreenState extends State<Dict_Screen> {
                     ),
                     onPressed: () {
                       if (byte==null) {
-                        GetbyteAndPlay(kor!);
+                        GetbyteAndPlay(kor!); // 한국어로 저장된 label을 읽어주게함
                       }
 
-                      byte!=null ? audioplay().byteplay(byte!):print("실패");
+                      byte!=null ? audioplay().byteplay(byte!):print("실패"); // 실패할경우
                     },
                     child: Text('발음듣기'),
                   ),

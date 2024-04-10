@@ -19,20 +19,19 @@ class _JoinScreenState extends State<JoinScreen> {
   final TextEditingController _nameController = TextEditingController();
 
   bool IdCheck = false; // 아이디 중복확인
-  String? _confirmPasswordError;
-  int? _selectedGender;
+  String? _confirmPasswordError; // 비밀번호 유효성확인
+  int? _selectedGender; // 성별 확인
 
   String? validatePassword(String? value) {
+    // 비밀번호 유효성 검사를 하기위한 함수
     if (value == null || value.isEmpty) {
       return '비밀번호를 입력해주세요.';
     }
-    // 여기에 추가적인 비밀번호 유효성 검사 로직을 추가할 수 있습니다.
-    // 예를 들어, 최소 길이, 특수문자 포함 등의 규칙을 검사할 수 있습니다.
     return null;
   }
 
   bool CheckJoin() {
-    // 1. 비밀번호 공백인지 + 동일한지
+    // 비밀번호 공백인지 + 동일한지
     bool PwCheck = (_pwController.text == _conpwController.text) &&
         (_pwController.text != "");
     return IdCheck && PwCheck;
@@ -62,7 +61,6 @@ class _JoinScreenState extends State<JoinScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //AppBar 들어갈 부분
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -71,6 +69,8 @@ class _JoinScreenState extends State<JoinScreen> {
             SizedBox(
               height: 60,
             ),
+
+            // <-- 아이디 -->
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -101,8 +101,9 @@ class _JoinScreenState extends State<JoinScreen> {
                     }
 
                     // 버튼 클릭 시 동작 추가
-                    String? check = await sqlget()
-                        .GetUserByIdPw(id: _idController.text);
+                    // sql 문을 통하여 DB에 아이디가 존재할경우 중복된 아이디, 없을시 사용 가능
+                    String? check =
+                        await sqlget().GetUserByIdPw(id: _idController.text);
                     if (check == 'pw') {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text('중복된 아이디가 있습니다.'),
@@ -132,6 +133,8 @@ class _JoinScreenState extends State<JoinScreen> {
             SizedBox(
               height: 30,
             ),
+
+            // <-- 비밀번호 -->
             Register_Pwform(
                 first_Text: '비밀번호',
                 hint_Text: '비밀번호를 입력하세요',
@@ -155,6 +158,8 @@ class _JoinScreenState extends State<JoinScreen> {
               },
               errorText: _confirmPasswordError,
             ),
+
+            // <-- 생년월일 -->
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -175,6 +180,8 @@ class _JoinScreenState extends State<JoinScreen> {
             SizedBox(
               height: 30,
             ),
+
+            // <-- 이름 -->
             Register_form(
                 first_Text: '이름',
                 hint_Text: '이름을 입력하세요',
@@ -183,6 +190,8 @@ class _JoinScreenState extends State<JoinScreen> {
             SizedBox(
               height: 30,
             ),
+
+            // <-- 성별 -->
             GenderRadio(
               onGenderSelected: (int gender) {
                 setState(() {
@@ -193,6 +202,8 @@ class _JoinScreenState extends State<JoinScreen> {
             SizedBox(
               height: 60,
             ),
+
+            // <-- 회원가입 버튼 -->
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   fixedSize: Size(160, 50),
@@ -202,9 +213,10 @@ class _JoinScreenState extends State<JoinScreen> {
                 // if (_idController.text = "") {
                 //
                 // }
+                // 아이디 중복확인버튼을 누르지 않을시에 중복확인해야함
                 if (IdCheck != true) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('아이디 중복확인을 해주세요.')));
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text('아이디 중복확인을 해주세요.')));
                   return;
                 }
 
@@ -219,14 +231,12 @@ class _JoinScreenState extends State<JoinScreen> {
                       birth: _birthController.text,
                       name: _nameController.text);
                   if (result) {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text('회원가입 성공!'),
                     ));
                     Navigator.of(context).pop();
                   } else {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text('서버 연결 오류!'),
                     ));
                   }
@@ -247,6 +257,8 @@ class _JoinScreenState extends State<JoinScreen> {
             SizedBox(
               height: 20,
             ),
+
+            // <-- 회원가입 취소 -->
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   fixedSize: Size(160, 50),
