@@ -23,7 +23,6 @@ class Question_Screen extends StatefulWidget {
 
 class _Question_ScreenState extends State<Question_Screen> {
   late final audioplay _audioPlayer;
-  // 각 버튼의 Color를 빌더로 나타내기위해 List형식으로 구성
   final List<Color> color_list = [
     CustomColor().green(),
     CustomColor().blue(),
@@ -41,17 +40,14 @@ class _Question_ScreenState extends State<Question_Screen> {
 
   @override
   Widget build(BuildContext context) {
-    // 실핼될때 자동으로 TTS가 나오지않는 현상을 발견하여 FutureBuilder를 사용하여 컨텐츠 자체를 ReBuild 하는 방식
     return FutureBuilder<void>(
       future: _ttsFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          // TTS 함수가 아직 완료되지 않은 경우, 로딩 인디케이터 표시
           return Center(
             child: Image.asset('assets/images/Quiz_loading.gif'),
           );
         } else {
-          // TTS 함수가 완료된 후에 위젯을 빌드
           return Column(
             children: [
               TitleBanner(text: '퀴즈! 퀴즈!'),
@@ -69,7 +65,7 @@ class _Question_ScreenState extends State<Question_Screen> {
                           child: Column(
                             children: [
                               Text(widget.questionList[widget.questionIndex]
-                                  ['question']),
+                              ['question']),
                             ],
                           ),
                         ),
@@ -91,12 +87,16 @@ class _Question_ScreenState extends State<Question_Screen> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
                                 ),
-                                onPressed: () => widget.answerPressed(
-                                    widget.questionList[widget.questionIndex]
-                                        ['answer'][index]['score']),
+                                onPressed: () {
+                                  bool isCorrect = widget
+                                      .questionList[widget.questionIndex]
+                                  ['answer'][index]['score'] > 0;
+                                  String correctAnswer = widget.questionList[widget.questionIndex]['answer'].firstWhere((element) => element['score'] == 1)['text']; // 'score'가 1인 답을 찾아서 가져옴
+                                  _showResultDialog(isCorrect, correctAnswer);
+                                },
                                 child: Text(
                                     widget.questionList[widget.questionIndex]
-                                        ['answer'][index]['text']),
+                                    ['answer'][index]['text']),
                               ),
                               SizedBox(
                                 height: 20,
@@ -115,19 +115,45 @@ class _Question_ScreenState extends State<Question_Screen> {
     );
   }
 
-  // 질문 음성을 재생하는 메서드
   Future<void> _playQuestionAudio(int index) async {
     Uint8List? voice =
-        await GetSound(text: widget.questionList[index]['question'])
-            .get_voice();
+    await GetSound(text: widget.questionList[index]['question'])
+        .get_voice();
     _audioPlayer.byteplay(voice!);
+  }
+
+  void _showResultDialog(bool isCorrect, String correctAnswer) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        title: Text(isCorrect ? '정답입니다!' : '오답입니다!'),
+        content: Text(isCorrect ? '다음 문제로 넘어갈까요?' : '정답은 $correctAnswer입니다. 계속 노력해주세요!'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              setState(() {
+                if (isCorrect) {
+                  // 정답을 맞추면 totalScore를 1 증가시킴
+                  widget.answerPressed(1);
+                } else {
+                  // 오답일 경우에는 점수를 증가시키지 않음
+                  widget.answerPressed(0);
+                }
+              });
+            },
+            child: Text('다음 문제 풀기'),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
   void didUpdateWidget(Question_Screen oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.questionIndex != widget.questionIndex) {
-      // 질문이 변경되었을 때만 TTS 함수 호출 및 Future 객체 업데이트
       setState(() {
         _ttsFuture = _playQuestionAudio(widget.questionIndex);
       });

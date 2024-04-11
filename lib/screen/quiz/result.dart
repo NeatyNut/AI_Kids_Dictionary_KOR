@@ -21,20 +21,16 @@ class ResultScreen extends StatelessWidget {
     String resultImage;
 
     if (totalScore == questionList.length) {
-      resultMessage = '헉 다 맞추셨어요!';
-    } else if (totalScore >= questionList.length / 2) {
-      resultMessage = '아쉽게도 조금 틀렸네요 다음엔 할 수 있어요!';
-    } else {
-      resultMessage = '어려웠나봐요 우리 다시 공부해서 풀어봐요';
-    }
-
-    if (totalScore == questionList.length) {
+      resultMessage = '우와 다 맞췄네요! 대단해요!';
       resultImage = 'assets/images/result_3.png';
-    } else if (totalScore >= questionList.length / 2) {
+    } else if (totalScore > 0 && totalScore < questionList.length) {
+      resultMessage = '아쉽지만 그래도 $totalScore개나 맞췄어요! 다음에는 다 맞출 수 있을 거예요~!';
       resultImage = 'assets/images/result_2.png';
     } else {
+      resultMessage = '퀴즈가 쉽지 않았죠? 우리 다시 공부하고 풀어 봐요!';
       resultImage = 'assets/images/result_1.png';
     }
+
 
     return Center(
       child: Column(
@@ -99,7 +95,7 @@ class ResultScreen extends StatelessWidget {
                 ModalRoute.withName('/book'), // 팝할 조건을 지정하는 predicate
               );
             },
-            child: Text("동화목록으로 돌아가기"),
+            child: Text("동화 목록으로 돌아가기"),
           ),
         ],
       ),

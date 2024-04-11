@@ -55,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
           String? newUserNo = await sqlget()
               .GetUserByIdPw(id: googleUser.email, pw: googleUser.id);
           Token().Settoken(userNo);
+          Navigator.pop(context);
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -65,6 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
       } else {
         // 로그인
         Token().Settoken(userNo);
+        Navigator.pop(context);
         Navigator.push(
           context,
           MaterialPageRoute(
