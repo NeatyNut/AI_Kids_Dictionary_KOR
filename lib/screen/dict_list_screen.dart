@@ -237,14 +237,14 @@ class _DictListScreenState extends State<DictListScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "진짜... 삭제 할거에요?",
+                  "진짜 지울 거예요?",
                 ),
               ],
             ),
             actions: <Widget>[
               new TextButton(
                 child: new Text(
-                  "삭제",
+                  "지우기",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,

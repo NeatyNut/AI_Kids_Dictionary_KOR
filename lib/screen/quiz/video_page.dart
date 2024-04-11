@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mmd/style/custom_color.dart';
-import 'quiz_screen.dart'; // 퀴즈 화면 파일 import
-import '../../contents/contents.dart'; // 내용 파일 import
-import '../../state_bar/appbar.dart'; // 상단 바 파일 import
-import 'package:youtube_player_flutter/youtube_player_flutter.dart'; // 유튜브 플레이어 패키지 import
-import '../../state_bar/bottombar.dart'; // 하단 바 파일 import
+import 'quiz_screen.dart';
+import '../../contents/contents.dart';
+import '../../state_bar/appbar.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import '../../state_bar/bottombar.dart';
 
 class VideoScreen extends StatefulWidget {
   @override
@@ -75,7 +75,7 @@ class _VideoScreenState extends State<VideoScreen> {
                         settings: RouteSettings(
                             arguments: {'title': args['title']}))); // 퀴즈 화면으로 이동
               },
-              child: Text('퀴즈 풀러가기',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),)) // 버튼 텍스트 설정
+              child: Text('퀴즈 풀러 가기',style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),)) // 버튼 텍스트 설정
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, // 플로팅 액션 버튼 위치 설정

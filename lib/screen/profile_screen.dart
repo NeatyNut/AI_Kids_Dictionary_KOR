@@ -232,7 +232,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('변경 하시겠습니까?'),
+                Text('변경할거예요?'),
               ],
             ),
             actions: [
