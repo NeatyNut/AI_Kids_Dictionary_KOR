@@ -174,11 +174,13 @@ class _MyCamera2State extends State<MyCamera2> {
                             dic_no: dic_no,
                             mydic_no: mydic_no);
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          behavior: SnackBarBehavior.floating,
                           content: Text('저장되었습니다.'),
                         ));
                         Navigator.popUntil(context, (route) => route.isFirst);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          behavior: SnackBarBehavior.floating,
                           content: Text('한국어 라벨을 받은 뒤 저장해주시기 바랍니다.'),
                         ));
                       }

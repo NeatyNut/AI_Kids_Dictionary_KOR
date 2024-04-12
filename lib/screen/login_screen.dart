@@ -148,6 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           if (_idController.text == "" ||
                               _pwController.text == "") {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              behavior: SnackBarBehavior.floating,
                               content: Text('아이디, 비밀번호를 입력해주시기 바랍니다.'),
                             ));
                             return;
@@ -157,16 +158,19 @@ class _LoginScreenState extends State<LoginScreen> {
                               id: _idController.text, pw: _pwController.text);
                           if (result == null) {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              behavior: SnackBarBehavior.floating,
                               content: Text('서버 오류'),
                             ));
                             return;
                           } else if (result == "id") {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              behavior: SnackBarBehavior.floating,
                               content: Text('아이디가 틀렸습니다.'),
                             ));
                             return;
                           } else if (result == "pw") {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              behavior: SnackBarBehavior.floating,
                               content: Text('비밀번호가 틀렸습니다.'),
                             ));
                             return;
@@ -174,7 +178,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               behavior: SnackBarBehavior.floating,
                               content: Text('로그인 성공!'),
-                              duration: Duration(seconds: 3),
                             ));
                             // 로그인 세션 유지
                             Token().Settoken(result);
