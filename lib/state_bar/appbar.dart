@@ -45,7 +45,7 @@ class _Appbar_screenState extends State<Appbar_screen> {
       shadowColor: Colors.black.withOpacity(0.2),
       backgroundColor: Colors.white,
       title: Text(
-        'My Memory Dictionary',
+        '찰칵 찰칵 한글 탐험',
         style: TextStyle(
           color: CustomColor().text(),
         ),

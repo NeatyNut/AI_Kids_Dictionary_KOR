@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mmd/contents/contents.dart';
 import 'package:mmd/contents/image_down.dart';
 import 'package:mmd/state_bar/appbar.dart';
+import 'package:mmd/state_bar/bottombar.dart';
 import '../style/custom_color.dart';
 import '../back_module/sqlclient.dart';
 import '../back_module/firebase.dart';
@@ -50,6 +51,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       });
       path = _image!.path;
       await FirebaseClient(user_no: user_no, mydic_no: 'Profile').upload(path);
+      showSnackBar(context);
     }
   }
 
@@ -72,6 +74,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
     initprofile();
+  }
+
+  void showSnackBar(BuildContext context) {
+    final snackBar = SnackBar(
+      content: Text('변경되었습니다.'),
+      behavior: SnackBarBehavior.floating,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override
@@ -120,7 +130,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             icon: Icon(Icons.add),
                             onPressed: () {
-                              DeleteDialog();
+                              ChangeDialog();
                             },
                           ),
                         ),
@@ -167,6 +177,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ],
           ),
         ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: BottomFAB(),
+      bottomNavigationBar: BottomScreen(),
       );
   }
 
@@ -200,6 +213,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Navigator.pop(context);
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => LoginScreen()));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    behavior: SnackBarBehavior.floating,
+                    content: Text('로그아웃 되었습니다..'),
+                  ));
                 },
                 child: Text('로그아웃',style: TextStyle(color:CustomColor().red()),),
               ),
@@ -214,7 +231,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         });
   }
 
-  void DeleteDialog() {
+  void ChangeDialog() {
     showDialog(
         context: context,
         barrierDismissible: false,

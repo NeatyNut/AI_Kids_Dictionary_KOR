@@ -131,7 +131,7 @@ class _Dict_ScreenState extends State<Dict_Screen> {
             SingleChildScrollView(
               child: Container(
                 width: 300,
-                color: Colors.grey[300],
+                color: Colors.transparent,
                 child: Column(
                   children: [
                     Text(mean!,
