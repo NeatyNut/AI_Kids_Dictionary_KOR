@@ -31,7 +31,8 @@ We built an api that receives classes flexibly so that classes can be added at a
 - experimental data : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/clip/model_test/%ED%81%B4%EB%A6%BD%20%EB%AA%A8%EB%8D%B8%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EA%B2%B0%EA%B3%BC.csv)
 - test_data : [Click](https://github.com/choikanghoon/mmd/tree/main/_AI_model/clip/model_test/data)
 - note : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/clip/clip%20%EC%97%B0%EA%B5%AC%EC%9A%A9.ipynb)
-![clip_result](_AI_model/clip_result.png)
+![model_test](https://github.com/choikanghoon/mmd/assets/149554171/bc69fc9f-1df1-418d-bad0-c4469787ba3b)
+
 
 #### ★ How Can We use well, Select well-learned English words
 To make the most of the performance of Clip, we tested which words were well learned. The results are as follows.
@@ -44,12 +45,14 @@ To make the most of the performance of Clip, we tested which words were well lea
 We were able to create a quiz generation ai that significantly reduced Hallucination by constructing a Vector DB and using RAG to generate Korean traditional fairy tales as quizzes.
 - note : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/rag/RAG%20%EC%97%B0%EA%B5%AC%EC%9A%A9.ipynb)
 - book_txt : [Click](https://github.com/choikanghoon/mmd/tree/main/_AI_model/rag/book_data/book_txt)
-![rag_result](_AI_model/rag_result.png)
+![model_test2](https://github.com/choikanghoon/mmd/assets/149554171/b0f03380-7462-4247-865b-ac876b09612b)
+
 
 ##### ★ Vector DB 구조
 VectorDB was used as an index for children's books.
 - DB : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/rag/book_data/chroma.sqlite3)
-![rag_vectordb](_AI_model/rag_vectordb.png)
+![model_ vectorDB](https://github.com/choikanghoon/mmd/assets/149554171/b31548b4-d14d-4341-9357-15e770cde4d5)
+
 
 ##### ★ Prompt Engineering
 By providing various prompts, including one-shot prompts, a quiz was obtained in the form of json and implemented at the app level without difficulty.
