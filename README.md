@@ -83,10 +83,10 @@ context:
 ```
 
 #### AI reference
-Clip : [Paper](https://arxiv.org/abs/2103.00020)
-RAG : [Paper](https://arxiv.org/pdf/2005.11401)
+- Clip : [Paper](https://arxiv.org/abs/2103.00020)
+- RAG : [Paper](https://arxiv.org/pdf/2005.11401)
 
-## How You Can use(Setting reference)
+## How to use(Setting reference)
 - setting.dart : [Click](https://github.com/choikanghoon/mmd/blob/main/lib/back_module/setting.dart)
 ![setting방법](https://github.com/choikanghoon/mmd/assets/89675001/ca403bdb-362f-4b49-b745-c4061cede0cf)
 
