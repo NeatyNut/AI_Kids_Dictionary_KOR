@@ -1,5 +1,4 @@
 ## It's AI Model Code and Result
----
 
 #### Clip Model Result : 129 Class, Accuracy 86.7%
 ![clip_result](clip_result.png)
