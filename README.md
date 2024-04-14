@@ -1,4 +1,4 @@
-## App sample
+![setting방법](https://github.com/choikanghoon/mmd/assets/89675001/a3184e47-35eb-4563-89b2-af6d6c5d637a)## App sample
 ![제목 없는 동영상 - Clipchamp로 제작](https://github.com/choikanghoon/mmd/assets/149549379/edc486ee-4c2e-4a9f-b759-f547d3c16688)
 ![제목 없는 동영상 - Clipchamp로 제작 (1)](https://github.com/choikanghoon/mmd/assets/149549379/16573c26-88d8-4026-8f6c-7dbdfd2207a5)
 
@@ -82,4 +82,7 @@ context:
 """
 ```
 
-5. 셋팅에 필요한 요소 - 무슨 API를 썼고 무슨 값을 넣어야하는지 대충 (코드에있는 내용 대충 써주기)
+## How You Can use(Setting reference)
+- setting.dart : [Click]()
+![setting방법](https://github.com/choikanghoon/mmd/assets/89675001/ca403bdb-362f-4b49-b745-c4061cede0cf)
+
