@@ -1,7 +1,8 @@
 1. 동영상 - 현종님이 편집한거 그대로 넣으면 되고
 2. 정의 - 앱배경 + 컨셉 머시기 머시기 깽이 - 영현님 PPT에 있는거 정리해서 넣으면되고
 3. 앱 디자인
-![mmd_design](https://github.com/choikanghoon/mmd/assets/149554171/f15a19af-cc25-4dc3-b624-bff4f942b6ec)
+![mmd_design](https://github.com/choikanghoon/mmd/assets/149554171/8ef2c56b-5682-4f38-bf5b-63220272ef28)
+
 
 5. 모델 ( 기술스택 등 ) Flutter Server Model 조직도 등등 - 민기님이 정리한내용 좀 스크립트를 넣으면되고 + 프론트엔드 이야기 정도?
 ## It's AI Model Code and Result
