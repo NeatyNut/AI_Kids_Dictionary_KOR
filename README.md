@@ -1,4 +1,4 @@
-![image](https://github.com/choikanghoon/mmd/assets/89675001/c56c706d-1128-436b-9c4b-05bc335ac4b9)## App sample
+## App sample
 ![제목 없는 동영상 - Clipchamp로 제작](https://github.com/choikanghoon/mmd/assets/149549379/edc486ee-4c2e-4a9f-b759-f547d3c16688)
 ![제목 없는 동영상 - Clipchamp로 제작 (1)](https://github.com/choikanghoon/mmd/assets/149549379/16573c26-88d8-4026-8f6c-7dbdfd2207a5)
 
