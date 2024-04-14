@@ -1,0 +1,131 @@
+,,,,낫베스트,,,베스트,,,photo of 베스트,,,한국어,,,,KoClip,,,
+번호,직접,jpg,낫베스트,label,prob,정답여부,label,prob,정답여부,label,prob,정답여부,한국라벨,label,prob,정답여부,한국라벨,label,prob,정답여부
+0,직접,air conditioner.jpg,,air conditioner,0.93209904,TRUE,air conditioner,0.93332195,TRUE,a photo of air conditioner,0.95164275,TRUE,전자레인지,microwave,0.042072646,FALSE,에어컨,air conditioner,0.9934017,TRUE
+1,,apple.jpg,,apple,0.94427294,TRUE,apple,0.94253343,TRUE,a photo of apple,0.92387533,TRUE,까치,magpie,0.057356227,FALSE,사과,apple,0.96713734,TRUE
+2,,backpack.jpg,,backpack,0.97188044,TRUE,backpack,0.9724468,TRUE,a photo of backpack,0.9889543,TRUE,소,cow,0.10710911,FALSE,가방,backpack,0.9701663,TRUE
+3,직접,banana.jpg,,banana,0.9901456,TRUE,banana,0.99013805,TRUE,a photo of banana,0.98818344,TRUE,칼,knife,0.08841015,FALSE,바나나,banana,0.9665405,TRUE
+4,,bear.jpg,,bear,0.9733483,TRUE,bear,0.97383714,TRUE,a photo of bear,0.96247137,TRUE,신발,shoes,0.07518147,FALSE,곰,bear,0.91971105,TRUE
+5,,bodywash.jpg,,bodywash,0.6923412,TRUE,bodywash,0.69297695,TRUE,a photo of bodywash,0.60681695,TRUE,돼지,pig,0.04035984,FALSE,바디워시,bodywash,0.981696,TRUE
+6,직접,book.jpg,,soap,0.08040616,FALSE,soap,0.08273063,FALSE,a photo of book,0.20591381,TRUE,핸드폰,cell phone,0.03221831,FALSE,책,book,0.79639316,TRUE
+7,직접,bottle.jpg,,bottle,0.6288191,TRUE,bottle,0.6293285,TRUE,a photo of bottle,0.7112115,TRUE,토끼,rabbit,0.055403627,FALSE,병,bottle,0.5931734,TRUE
+8,직접,bowl.jpg,,humidifier,0.5102509,FALSE,humidifier,0.47102487,FALSE,a photo of humidifier,0.4954221,FALSE,에어컨,air conditioner,0.037497025,FALSE,전자레인지,microwave,0.40576166,FALSE
+9,,box.jpg,,box,0.9363822,TRUE,box,0.93689996,TRUE,a photo of box,0.8001626,TRUE,샴푸,shampoo,0.023309665,FALSE,박스,box,0.9888966,TRUE
+10,직접,bread.jpg,,ricecake,0.48977977,FALSE,ricecake,0.48975277,FALSE,a photo of cake,0.7675841,FALSE,두꺼비,toad,0.24819344,FALSE,빵,bread,0.23166926,TRUE
+11,,cake.jpg,,cake,0.94312817,TRUE,cake,0.9429847,TRUE,a photo of cake,0.98460406,TRUE,칼,knife,0.074255675,FALSE,케잌,cake,0.9916106,TRUE
+12,,camel.jpg,,camel,0.9974976,TRUE,camel,0.99774146,TRUE,a photo of camel,0.998309,TRUE,변기,toilet,0.15991227,FALSE,낙타,camel,0.99546164,TRUE
+13,직접,can.jpg,,sprayer,0.16589747,FALSE,sprayer,0.1755942,FALSE,a photo of can,0.60604376,TRUE,컴퓨터,computer,0.037081573,FALSE,가습기,humidifier,0.31245968,FALSE
+14,,candy.jpg,,candy,0.37902004,TRUE,candy,0.40880594,TRUE,a photo of chopsticks,0.3466233,FALSE,두꺼비,toad,0.04622078,FALSE,사탕,candy,0.91745263,TRUE
+15,직접,car.jpg,,car,0.3333339,TRUE,car,0.33427283,TRUE,a photo of car,0.46444878,TRUE,인형,doll,0.06967046,FALSE,차,car,0.102028236,TRUE
+16,직접,cat.jpg,,cat,0.6044462,TRUE,cat,0.51975244,TRUE,a photo of labtop,0.27281332,FALSE,인형,doll,0.11793049,FALSE,고양이,cat,0.28973836,TRUE
+17,직접,cell phone.jpg,,iron,0.14508887,FALSE,tablet,0.11438186,FALSE,a photo of apple,0.16144535,FALSE,신발,shoes,0.03262369,FALSE,핸드폰,cell phone,0.38051444,TRUE
+18,직접,chair.jpg,,chair,0.9697477,TRUE,chair,0.96725065,TRUE,a photo of chair,0.9588105,TRUE,전자레인지,microwave,0.050623946,FALSE,의자,chair,0.9870048,TRUE
+19,,chick.jpg,,egg,0.593197,FALSE,egg,0.5932587,FALSE,a photo of egg,0.5865621,FALSE,캔,can,0.1666107,FALSE,병아리,chick,0.9674915,TRUE
+20,,chicken.jpg,,chicken,0.8109181,TRUE,chicken,0.81189334,TRUE,a photo of chicken,0.8867575,TRUE,캔,can,0.17403199,FALSE,닭,chicken,0.6677707,TRUE
+21,,city.jpg,,city,0.51359475,TRUE,city,0.5111152,TRUE,a photo of needle,0.30357206,FALSE,돌,stone,0.0993139,FALSE,도시,city,0.39267573,TRUE
+22,직접,clock.jpg,,clock,0.9041971,TRUE,clock,0.90512335,TRUE,a photo of clock,0.9166372,TRUE,포크,fork,0.035207525,FALSE,시계,clock,0.6178471,TRUE
+23,,clothing.jpg,,clothing,0.9822626,TRUE,clothing,0.98401445,TRUE,a photo of clothing,0.99448556,TRUE,옥수수,corn,0.032885637,FALSE,옷,clothing,0.9783125,TRUE
+24,,cloud.jpg,,cloud,0.8588093,TRUE,cloud,0.85815495,TRUE,a photo of cloud,0.30204794,TRUE,꽃,flower,0.035357323,FALSE,구름,cloud,0.77501774,TRUE
+25,,computer.jpg,,computer,0.48581347,TRUE,computer,0.7340453,TRUE,a photo of computer,0.88566417,TRUE,싱크대,sink,0.03619067,FALSE,컴퓨터,computer,0.95322675,TRUE
+26,,corn.jpg,,corn,0.9967242,TRUE,corn,0.9967392,TRUE,a photo of corn,0.9970489,TRUE,까치,magpie,0.12067849,FALSE,옥수수,corn,0.9978115,TRUE
+27,,cosmetics.jpg,makeup,cosmetics,0.9896964,TRUE,cosmetics,0.9981902,TRUE,a photo of cosmetics,0.9996631,TRUE,전자레인지,microwave,0.050510615,FALSE,화장품,cosmetics,0.9886851,TRUE
+28,,countryside.jpg,,countryside,0.8871551,TRUE,countryside,0.9114193,TRUE,a photo of countryside,0.8089219,TRUE,꽃,flower,0.06403014,FALSE,시골,countryside,0.9647213,TRUE
+29,,cow.jpg,,cow,0.9962106,TRUE,cow,0.9962568,TRUE,a photo of cow,0.98881274,TRUE,까치,magpie,0.09528222,FALSE,소,cow,0.7842814,TRUE
+30,,creek.jpg,brook,creek,0.2981123,TRUE,creek,0.75693417,TRUE,a photo of creek,0.98476046,TRUE,산,mountain,0.031431444,FALSE,개천,creek,0.92041236,TRUE
+31,,cucumber.jpg,,cucumber,0.9994056,TRUE,cucumber,0.9994092,TRUE,a photo of cucumber,0.99953353,TRUE,까치,magpie,0.10180814,FALSE,오이,cucumber,0.99977595,TRUE
+32,직접,cup.jpg,,cup,0.47812578,TRUE,cup,0.47852355,TRUE,a photo of cup,0.37702486,TRUE,빵,bread,0.096731566,FALSE,컵,cup,0.97665966,TRUE
+33,직접,dog.jpg,,dog,0.36276084,TRUE,dog,0.37713078,TRUE,a photo of dog,0.29888827,TRUE,고양이,cat,0.3652188,FALSE,개,dog,0.3156084,TRUE
+34,직접,doll.jpg,,bear,0.60072434,FALSE,bear,0.60185695,FALSE,a photo of doll,0.26129192,TRUE,인형,doll,0.124597624,TRUE,곰,bear,0.7456444,FALSE
+35,직접,drawer.jpg,dresser,drawer,0.78882545,TRUE,drawer,0.8642741,TRUE,a photo of drawer,0.8519695,TRUE,옷,clothing,0.047472518,FALSE,서랍장,drawer,0.9839153,TRUE
+36,,duck.jpg,,duck,0.96282864,TRUE,duck,0.96292347,TRUE,a photo of duck,0.9751769,TRUE,옷,clothing,0.059767686,FALSE,오리,duck,0.97854644,TRUE
+37,직접,earphone.jpg,,earphone,0.68231,TRUE,earphone,0.68560064,TRUE,a photo of earphone,0.813667,TRUE,소,cow,0.031811442,FALSE,이어폰,earphone,0.99677414,TRUE
+38,직접,egg.jpg,,egg,0.9417994,TRUE,egg,0.9423089,TRUE,a photo of egg,0.89109576,TRUE,칼,knife,0.036441814,FALSE,달걀,egg,0.9055692,TRUE
+39,,elephant.jpg,,elephant,0.9955354,TRUE,elephant,0.99551505,TRUE,a photo of elephant,0.9964868,TRUE,꽃,flower,0.11976909,FALSE,코끼리,elephant,0.9905117,TRUE
+40,직접,fan.jpg,,fan,0.7885894,TRUE,fan,0.7859761,TRUE,a photo of fan,0.93875873,TRUE,전자레인지,microwave,0.029174305,FALSE,선풍기,fan,0.7740735,TRUE
+41,,fish.jpg,,fish,0.802352,TRUE,fish,0.80404854,TRUE,a photo of fish,0.9064011,TRUE,발,foot,0.06270113,FALSE,물고기,fish,0.61492544,TRUE
+42,직접,flower.jpg,,flower,0.4416878,TRUE,flower,0.3933591,TRUE,a photo of flower,0.5015309,TRUE,분무기,sprayer,0.242207,FALSE,꽃,flower,0.5947878,TRUE
+43,,foot.jpg,,foot,0.76517445,TRUE,foot,0.8645146,TRUE,a photo of foot,0.88364404,TRUE,전자레인지,microwave,0.045363557,FALSE,발,foot,0.8456049,TRUE
+44,직접,fork.jpg,,fork,0.936605,TRUE,fork,0.93704283,TRUE,a photo of fork,0.9458858,TRUE,까치,magpie,0.07292635,FALSE,포크,fork,0.9589395,TRUE
+45,,fox.jpg,,fox,0.9896645,TRUE,fox,0.98988694,TRUE,a photo of fox,0.98955345,TRUE,소,cow,0.041222136,FALSE,여우,fox,0.97489953,TRUE
+46,직접,fried food.jpg,,fried food,0.32646865,TRUE,fried food,0.3269187,TRUE,a photo of fried food,0.5195555,TRUE,두꺼비,toad,0.080990836,FALSE,튀김,fried food,0.5981742,TRUE
+47,,frog.jpg,,frog,0.71469724,TRUE,frog,0.7146117,TRUE,a photo of frog,0.72922313,TRUE,바늘,needle,0.051889256,FALSE,개구리,frog,0.59860414,TRUE
+48,직접,gas range.jpg,,gas range,0.93016195,TRUE,gas range,0.928188,TRUE,a photo of gas range,0.89437985,TRUE,토끼,rabbit,0.05565471,FALSE,가스레인지,gas range,0.9990103,TRUE
+49,,giraffe.jpg,,giraffe,0.98994803,TRUE,giraffe,0.9899831,TRUE,a photo of giraffe,0.9915241,TRUE,태블릿,tablet,0.05346205,FALSE,기린,giraffe,0.98983103,TRUE
+50,직접,glasses.jpg,,glasses,0.6911464,TRUE,glasses,0.6889727,TRUE,a photo of glasses,0.9577712,TRUE,멀티탭,multitap,0.03395887,FALSE,안경,glasses,0.98649246,TRUE
+51,,goat.jpg,,cow,0.4240987,FALSE,cow,0.424137,FALSE,a photo of goat,0.81144047,TRUE,고양이,cat,0.048156746,FALSE,염소,goat,0.4136555,TRUE
+52,직접,hair drier.jpg,,hair drier,0.81536996,TRUE,hair drier,0.8151775,TRUE,a photo of hair drier,0.9416691,TRUE,빵,bread,0.040541813,FALSE,헤어드라이어,hair drier,0.9933971,TRUE
+53,,hand.jpg,,hand,0.62278205,TRUE,hand,0.61374164,TRUE,a photo of hand,0.59461737,TRUE,칼,knife,0.058444727,FALSE,손,hand,0.91080374,TRUE
+54,,hat.jpg,,hat,0.8101751,TRUE,hat,0.8104046,TRUE,a photo of hat,0.92764956,TRUE,소,cow,0.028512487,FALSE,모자,hat,0.96772635,TRUE
+55,,horse.jpg,,horse,0.9584171,TRUE,horse,0.9571723,TRUE,a photo of horse,0.9610787,TRUE,포크,fork,0.03817777,FALSE,말,horse,0.34411678,TRUE
+56,,humidifier.jpg,,humidifier,0.99832255,TRUE,humidifier,0.9976197,TRUE,a photo of humidifier,0.9976035,TRUE,빵,bread,0.036525935,FALSE,가습기,humidifier,0.99975926,TRUE
+57,직접,keyboard.jpg,,keyboard,0.6745518,TRUE,keyboard,0.63817304,TRUE,a photo of keyboard,0.666661,TRUE,싱크대,sink,0.049561433,FALSE,키보드,keyboard,0.75687766,TRUE
+58,,kimchi.jpg,,kimchi,0.99994767,TRUE,kimchi,0.9999479,TRUE,a photo of kimchi,0.99917173,TRUE,손톱깎이,nail clipper,0.2258566,FALSE,김치,kimchi,0.99981934,TRUE
+59,직접,knife.jpg,,knife,0.7958017,TRUE,knife,0.7952635,TRUE,a photo of knife,0.95842016,TRUE,토끼,rabbit,0.029894412,FALSE,칼,knife,0.86943895,TRUE
+60,직접,labtop.jpg,notebook computer,labtop,0.28814524,TRUE,labtop,0.76224416,TRUE,a photo of labtop,0.48894066,TRUE,사람,person,0.053470284,FALSE,노트북,labtop,0.97936994,TRUE
+61,,lion.jpg,,lion,0.99075925,TRUE,lion,0.9909151,TRUE,a photo of lion,0.9922197,TRUE,인형,doll,0.063498184,FALSE,사자,lion,0.93106157,TRUE
+62,,lunch box.jpg,,lunch box,0.999788,TRUE,lunch box,0.9997749,TRUE,a photo of lunch box,0.9996519,TRUE,칼,knife,0.058069374,FALSE,도시락,lunch box,0.99402547,TRUE
+63,,magpie.jpg,,magpie,0.97456133,TRUE,magpie,0.97456896,TRUE,a photo of magpie,0.5807781,TRUE,소,cow,0.07688177,FALSE,까치,magpie,0.99979526,TRUE
+64,,meat.jpg,,meat,0.3673221,TRUE,meat,0.37065125,TRUE,a photo of meat,0.35610414,TRUE,서랍장,drawer,0.45473996,FALSE,고기,meat,0.647309,TRUE
+65,,microwave.jpg,,microwave,0.9736486,TRUE,microwave,0.97453564,TRUE,a photo of microwave,0.99379855,TRUE,칼,knife,0.041022554,FALSE,전자레인지,microwave,0.99936754,TRUE
+66,,monkey.jpg,,monkey,0.96619105,TRUE,monkey,0.9650985,TRUE,a photo of monkey,0.9846635,TRUE,모자,hat,0.061391074,FALSE,원숭이,monkey,0.98078555,TRUE
+67,,mountain.jpg,,mountain,0.56793845,TRUE,mountain,0.580667,TRUE,a photo of mountain,0.35130152,TRUE,돌,stone,0.067136064,FALSE,개천,creek,0.07495549,FALSE
+68,직접,mouse.jpg,,mouse,0.78158134,TRUE,mouse,0.7917327,TRUE,a photo of mouse,0.26652578,TRUE,핸드폰,cell phone,0.039419312,FALSE,마우스,mouse,0.86037934,TRUE
+69,,mud flats.jpg,dry beach,mud flats,0.3803898,TRUE,mud flats,0.67773104,TRUE,a photo of mud flats,0.56368333,TRUE,필기구,pen,0.038001474,FALSE,갯벌,mud flats,0.9966336,TRUE
+70,직접,multitap.jpg,,earphone,0.47211653,FALSE,earphone,0.46935445,FALSE,a photo of multitap,0.65220416,TRUE,에어컨,air conditioner,0.02989495,FALSE,멀티탭,multitap,0.9798467,TRUE
+71,직접,nail clipper.jpg,,nail clipper,0.67008466,TRUE,nail clipper,0.67335635,TRUE,a photo of nail clipper,0.86370766,TRUE,바늘,needle,0.03761962,FALSE,손톱깎이,nail clipper,0.58558583,TRUE
+72,,needle.jpg,,chopsticks,0.2911496,FALSE,chopsticks,0.29313225,FALSE,a photo of chopsticks,0.5989051,FALSE,꽃,flower,0.037726294,FALSE,포크,fork,0.37034684,FALSE
+73,직접,noodle.jpg,,soup,0.7941587,FALSE,soup,0.79544866,FALSE,a photo of soup,0.7486443,FALSE,서랍장,drawer,0.2862041,FALSE,국수,noodle,0.4596344,TRUE
+74,,paper bag.jpg,,paper bag,0.8172811,TRUE,paper bag,0.8230916,TRUE,a photo of paper bag,0.9168917,TRUE,소,cow,0.04415075,FALSE,종이가방,paper bag,0.8814346,TRUE
+75,,paper towel.jpg,,paper towel,0.9653224,TRUE,paper towel,0.96546423,TRUE,a photo of paper towel,0.8655646,TRUE,모자,hat,0.043890074,FALSE,수건,towel,0.46039733,FALSE
+76,직접,pen.jpg,,pen,0.93469167,TRUE,pen,0.9354728,TRUE,a photo of pen,0.8813885,TRUE,고기,meat,0.026300635,FALSE,필기구,pen,0.9729707,TRUE
+77,,penguin.jpg,,penguin,0.9961733,TRUE,penguin,0.99620134,TRUE,a photo of penguin,0.994212,TRUE,꽃,flower,0.07648726,FALSE,펭귄,penguin,0.9930789,TRUE
+78,,person.jpg,,goat,0.26559106,FALSE,goat,0.26829505,FALSE,a photo of goat,0.9041267,FALSE,신발,shoes,0.20336413,FALSE,사자,lion,0.102057576,FALSE
+79,,pig.jpg,,pig,0.8942397,TRUE,pig,0.8942871,TRUE,a photo of pig,0.86020833,TRUE,신발,shoes,0.07532765,FALSE,돼지,pig,0.9299951,TRUE
+80,,pigeon.jpg,,pigeon,0.99704784,TRUE,pigeon,0.9972299,TRUE,a photo of pigeon,0.9970638,TRUE,바늘,needle,0.09011598,FALSE,비둘기,pigeon,0.992766,TRUE
+81,,plane.jpg,,plane,0.91724646,TRUE,plane,0.9174409,TRUE,a photo of plane,0.9584166,TRUE,말,horse,0.048716523,FALSE,비행기,plane,0.7621537,TRUE
+82,직접,plastic bag.jpg,,plastic bag,0.944137,TRUE,plastic bag,0.94445366,TRUE,a photo of plastic bag,0.9409368,TRUE,사과,apple,0.03480099,FALSE,비닐봉투,plastic bag,0.64837986,TRUE
+83,,plate.jpg,,bowl,0.61720085,FALSE,bowl,0.61991423,FALSE,a photo of plate,0.63739,TRUE,소,cow,0.02964979,FALSE,그릇,bowl,0.5946849,FALSE
+84,,potato.jpg,,potato,0.6495464,TRUE,potato,0.6503135,TRUE,a photo of potato,0.7604027,TRUE,까치,magpie,0.09073247,FALSE,감자,potato,0.97724164,TRUE
+85,,purse.jpg,handbag,purse,0.8928766,TRUE,purse,0.92062825,TRUE,a photo of purse,0.88277787,TRUE,소시지,sausage,0.02718605,FALSE,손가방,purse,0.796731,TRUE
+86,,rabbit.jpg,,rabbit,0.98872876,TRUE,rabbit,0.98876977,TRUE,a photo of rabbit,0.9829936,TRUE,병아리,chick,0.06752699,FALSE,토끼,rabbit,0.975552,TRUE
+87,,rat.jpg,,rat,0.67408776,TRUE,rat,0.67413086,TRUE,a photo of rat,0.74708027,TRUE,신발,shoes,0.089667775,FALSE,쥐,rat,0.77094716,TRUE
+88,직접,razor.jpg,,hair drier,0.38630363,FALSE,steam iron,0.6246321,FALSE,a photo of steam iron,0.5750468,FALSE,전자레인지,microwave,0.027729882,FALSE,면도기,razor,0.9915365,TRUE
+89,직접,refrigerator.jpg,,refrigerator,0.7922659,TRUE,refrigerator,0.78882056,TRUE,a photo of refrigerator,0.7215975,TRUE,국,soup,0.030067805,FALSE,냉장고,refrigerator,0.8976033,TRUE
+90,직접,remote control.jpg,,remote control,0.9797092,TRUE,remote control,0.9825382,TRUE,a photo of remote control,0.9751878,TRUE,포크,fork,0.029084105,FALSE,리모컨,remote control,0.96838224,TRUE
+91,직접,rice.jpg,,rice,0.9676932,TRUE,rice,0.9682662,TRUE,a photo of rice,0.98609734,TRUE,토끼,rabbit,0.08725428,FALSE,밥,rice,0.7483326,TRUE
+92,,ricecake.jpg,,ricecake,0.23523201,TRUE,ricecake,0.2341782,TRUE,a photo of chopsticks,0.26018128,FALSE,칼,knife,0.1617072,FALSE,떡,ricecake,0.70545536,TRUE
+93,,sand.jpg,,sand,0.951696,TRUE,sand,0.9757112,TRUE,a photo of sand,0.98787504,TRUE,변기,toilet,0.033412684,FALSE,모래,sand,0.9971372,TRUE
+94,,sausage.jpg,,sausage,0.6192946,TRUE,sausage,0.6198889,TRUE,a photo of sausage,0.6393488,TRUE,칼,knife,0.28308135,FALSE,소시지,sausage,0.8619025,TRUE
+95,직접,scissors.jpg,,scissors,0.86402935,TRUE,scissors,0.86416423,TRUE,a photo of scissors,0.8466274,TRUE,포크,fork,0.032006547,FALSE,가위,scissors,0.9932268,TRUE
+96,,sea.jpg,,sea,0.9648993,TRUE,sea,0.9657686,TRUE,a photo of sea,0.87413895,TRUE,밥,rice,0.09994937,FALSE,바다,sea,0.97577333,TRUE
+97,,shampoo.jpg,,shampoo,0.46536633,TRUE,shampoo,0.46558908,TRUE,a photo of shampoo,0.61149335,TRUE,도시락,lunch box,0.04822344,FALSE,바디워시,bodywash,0.703984,FALSE
+98,,sheep.jpg,,sheep,0.94224304,TRUE,sheep,0.94235855,TRUE,a photo of sheep,0.9828063,TRUE,신발,shoes,0.057098884,FALSE,시골,countryside,0.48609665,FALSE
+99,,ship.jpg,,ship,0.9222807,TRUE,ship,0.91646427,TRUE,a photo of ship,0.93256617,TRUE,밥,rice,0.11463068,FALSE,바다,sea,0.5489336,FALSE
+100,직접,shoes.jpg,footwear,shoes,0.65872294,TRUE,shoes,0.79409826,TRUE,a photo of shoes,0.873867,TRUE,옥수수,corn,0.026376685,FALSE,신발,shoes,0.8458732,TRUE
+101,직접,shower head.jpg,,shower head,0.8165875,TRUE,shower head,0.8124162,TRUE,a photo of shower head,0.76983887,TRUE,에어컨,air conditioner,0.049074035,FALSE,샤워기,shower head,0.545927,TRUE
+102,직접,sink.jpg,,sink,0.49909356,TRUE,sink,0.4954853,TRUE,a photo of sink,0.51193005,TRUE,토끼,rabbit,0.03158506,FALSE,싱크대,sink,0.9584421,TRUE
+103,,snake.jpg,,snake,0.97755706,TRUE,snake,0.977719,TRUE,a photo of snake,0.96766025,TRUE,바늘,needle,0.07541575,FALSE,뱀,snake,0.97552013,TRUE
+104,직접,soap.jpg,,soap,0.9996501,TRUE,soap,0.99963677,TRUE,a photo of soap,0.99940145,TRUE,책,book,0.11677681,FALSE,비누,soap,0.99611664,TRUE
+105,,soup.jpg,,kimchi,0.5517299,FALSE,kimchi,0.55237937,FALSE,a photo of kimchi,0.47441414,FALSE,서랍장,drawer,0.15275817,FALSE,접시,plate,0.47540414,FALSE
+106,,sparrow.jpg,,sparrow,0.98792285,TRUE,sparrow,0.98799604,TRUE,a photo of sparrow,0.97040033,TRUE,바늘,needle,0.09101402,FALSE,참새,sparrow,0.9989309,TRUE
+107,직접,spoon.jpg,,spoon,0.9231918,TRUE,spoon,0.9237253,TRUE,a photo of spoon,0.50635165,TRUE,칼,knife,0.06857053,FALSE,숟가락,spoon,0.9657489,TRUE
+108,직접,sprayer.jpg,,penguin,0.23874089,FALSE,penguin,0.21572915,FALSE,a photo of bottle,0.13046238,FALSE,말,horse,0.024910176,FALSE,분무기,sprayer,0.4575682,TRUE
+109,,stair.jpg,step,stair,0.53944564,TRUE,stair,0.98705345,TRUE,a photo of stair,0.9966988,TRUE,옷,clothing,0.12391693,FALSE,계단,stair,0.9561492,TRUE
+110,,steam iron.jpg,iron,humidifier,0.8555795,FALSE,steam iron,0.9505549,TRUE,a photo of steam iron,0.96157444,TRUE,바늘,needle,0.056318954,FALSE,다리미,steam iron,0.9988011,TRUE
+111,,stone.jpg,,stone,0.8245783,TRUE,stone,0.86161876,TRUE,a photo of stone,0.7661757,TRUE,밥,rice,0.044207618,FALSE,돌,stone,0.9681836,TRUE
+112,,swallow.jpg,,swallow,0.9672967,TRUE,swallow,0.9672765,TRUE,a photo of swallow,0.9721266,TRUE,소,cow,0.2428878,FALSE,참새,sparrow,0.72272766,FALSE
+113,,sweat potato.jpg,,potato,0.48730984,FALSE,potato,0.48987725,FALSE,a photo of sweat potato,0.46760187,TRUE,칼,knife,0.0683254,FALSE,고구마,sweat potato,0.98682946,TRUE
+114,,table.jpg,,table,0.97955257,TRUE,table,0.9791653,TRUE,a photo of table,0.97413456,TRUE,오리,duck,0.035735197,FALSE,탁자,table,0.9938883,TRUE
+115,,tablet.jpg,,tablet,0.77838635,TRUE,tablet,0.75693035,TRUE,a photo of tablet,0.6815511,TRUE,모자,hat,0.03107185,FALSE,태블릿,tablet,0.9375454,TRUE
+116,,tiger.jpg,,tiger,0.99474144,TRUE,tiger,0.99480337,TRUE,a photo of tiger,0.9825699,TRUE,인형,doll,0.13079256,FALSE,호랑이,tiger,0.996283,TRUE
+117,,toad.jpg,,toad,0.8759544,TRUE,toad,0.8760387,TRUE,a photo of toad,0.7008255,TRUE,인형,doll,0.062312305,FALSE,두꺼비,toad,0.9843779,TRUE
+118,,toilet.jpg,,toilet,0.9760526,TRUE,toilet,0.9765421,TRUE,a photo of toilet,0.9620641,TRUE,소,cow,0.040329963,FALSE,변기,toilet,0.9484063,TRUE
+119,직접,towel.jpg,,paper towel,0.51714975,FALSE,paper towel,0.49791968,FALSE,a photo of towel,0.77349585,TRUE,토끼,rabbit,0.040101286,FALSE,수건,towel,0.4967909,TRUE
+120,직접,tree.jpg,,humidifier,0.6473465,FALSE,humidifier,0.6457724,FALSE,a photo of humidifier,0.49559206,FALSE,수건,towel,0.037438642,FALSE,가습기,humidifier,0.43884608,FALSE
+121,,turtle.jpg,,turtle,0.98498625,TRUE,turtle,0.9850249,TRUE,a photo of turtle,0.9855849,TRUE,모자,hat,0.0799604,FALSE,거북이,turtle,0.9667019,TRUE
+122,직접,tv.jpg,television,tv,0.8287067,TRUE,tv,0.8868254,TRUE,a photo of tv,0.8085426,TRUE,국,soup,0.03065291,FALSE,텔레비전,tv,0.9740216,TRUE
+123,직접,umbrella.jpg,,fan,0.41695258,FALSE,fan,0.34076804,FALSE,a photo of fan,0.3568898,FALSE,싱크대,sink,0.040470507,FALSE,다리미,steam iron,0.09040711,FALSE
+124,직접,washing machine.jpg,,washing machine,0.99066365,TRUE,washing machine,0.9880697,TRUE,a photo of washing machine,0.9863035,TRUE,토끼,rabbit,0.030279653,FALSE,세탁기,washing machine,0.97433406,TRUE
+125,직접,watch.jpg,,watch,0.74480766,TRUE,watch,0.75285536,TRUE,a photo of watch,0.9134302,TRUE,화장품,cosmetics,0.02323968,FALSE,손목시계,watch,0.7421104,TRUE
+126,,whale.jpg,,whale,0.9874693,TRUE,whale,0.9875052,TRUE,a photo of whale,0.9969164,TRUE,바늘,needle,0.20088266,FALSE,고래,whale,0.9790269,TRUE
+127,,wire.jpg,,wire,0.40521386,TRUE,wire,0.40534335,TRUE,a photo of chopsticks,0.39155206,FALSE,소,cow,0.03950489,FALSE,전선,wire,0.99811614,TRUE
+128,,wolf.jpg,,wolf,0.9505115,TRUE,wolf,0.9506402,TRUE,a photo of wolf,0.96266645,TRUE,바늘,needle,0.065512694,FALSE,늑대,wolf,0.97104824,TRUE

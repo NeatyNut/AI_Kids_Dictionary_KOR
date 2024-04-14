@@ -235,7 +235,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                               imagepath: 'assets/images/M.png',
                               backcolor: CustomColor().yellow(),
-                              text: 'MMD 회원가입 하기'),
+                              text: '한글탐험 회원가입 하기'),
                           SizedBox(
                             height: 30,
                           ),
