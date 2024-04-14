@@ -27,9 +27,12 @@ This process can eliminate any aversion to learning Hangul and help children for
 
 ### Clip
 #### Clip Model Test Result : 129 Class / Accuracy 86.7%
+- Experiment Note
 ![clip_result](_AI_model/clip_result.png)
 
+
 #### ★ How Can We use well, Select well-learned English words
+- experimental data : [Likn](https://github.com/choikanghoon/mmd/blob/main/_AI_model/clip/eng_crawling/eng_crawling_result.csv)
 ![image](https://github.com/choikanghoon/mmd/assets/89675001/46c918bb-1436-43e3-9c64-d02f76fdf916)
 
 ### RAG
