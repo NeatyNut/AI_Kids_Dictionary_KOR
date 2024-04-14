@@ -17,10 +17,14 @@ This process can eliminate any aversion to learning Hangul and help children for
 
 
 5. 모델 ( 기술스택 등 ) Flutter Server Model 조직도 등등 - 민기님이 정리한내용 좀 스크립트를 넣으면되고 + 프론트엔드 이야기 정도?
-## It's AI Model Code and Result
 
-#### Clip Model Result : 129 Class, Accuracy 86.7%
+## AI Model(Clip, TTS, Gemini+RAG)
+
+#### Clip Model Test Result : 129 Class / Accuracy 86.7%
 ![clip_result](_AI_model/clip_result.png)
+
+#### ★ How Can We use well, Select well-learned English words
+
 
 #### RAG + Gemini Result
 ![rag_result](_AI_model/rag_result.png)
