@@ -1,4 +1,4 @@
-## App sample
+![image](https://github.com/choikanghoon/mmd/assets/89675001/c56c706d-1128-436b-9c4b-05bc335ac4b9)## App sample
 ![제목 없는 동영상 - Clipchamp로 제작](https://github.com/choikanghoon/mmd/assets/149549379/edc486ee-4c2e-4a9f-b759-f547d3c16688)
 ![제목 없는 동영상 - Clipchamp로 제작 (1)](https://github.com/choikanghoon/mmd/assets/149549379/16573c26-88d8-4026-8f6c-7dbdfd2207a5)
 
@@ -26,14 +26,13 @@ This process can eliminate any aversion to learning Hangul and help children for
 ## AI Model(Clip, TTS, Gemini+RAG)
 
 ### Clip
-
 #### Clip Model Test Result : 129 Class / Accuracy 86.7%
 ![clip_result](_AI_model/clip_result.png)
 
 #### ★ How Can We use well, Select well-learned English words
+![image](https://github.com/choikanghoon/mmd/assets/89675001/46c918bb-1436-43e3-9c64-d02f76fdf916)
 
 ### RAG
-
 #### RAG + Gemini Result
 ![rag_result](_AI_model/rag_result.png)
 
