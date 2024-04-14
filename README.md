@@ -21,7 +21,6 @@ This process can eliminate any aversion to learning Hangul and help children for
 ## AI Model(Clip, TTS, Gemini+RAG)
 
 ### Clip
----
 
 #### Clip Model Test Result : 129 Class / Accuracy 86.7%
 ![clip_result](_AI_model/clip_result.png)
@@ -29,7 +28,6 @@ This process can eliminate any aversion to learning Hangul and help children for
 #### ★ How Can We use well, Select well-learned English words
 
 ### RAG
----
 
 #### RAG + Gemini Result
 ![rag_result](_AI_model/rag_result.png)
