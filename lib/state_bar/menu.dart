@@ -15,10 +15,14 @@ class MenuScreen extends StatefulWidget {
 class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
-    double stateBarHeight = MediaQuery.of(context).padding.top; // 기본적인 상태바의 크기 공간을 띄우기 위해 변수 정의
+    double stateBarHeight =
+        MediaQuery.of(context).padding.top; // 기본적인 상태바의 크기 공간을 띄우기 위해 변수 정의
     return Drawer(
-      width: MediaQuery.of(context).size.width, // 각 모바일 Device의 전체범위를 지정하기 위해 MediaQuery 사용
-      child: Container( // 뒷배경을 꾸며주기위해 Container로 배경 정의
+      width: MediaQuery.of(context)
+          .size
+          .width, // 각 모바일 Device의 전체범위를 지정하기 위해 MediaQuery 사용
+      child: Container(
+        // 뒷배경을 꾸며주기위해 Container로 배경 정의
         margin: EdgeInsets.only(top: stateBarHeight),
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -26,7 +30,8 @@ class _MenuScreenState extends State<MenuScreen> {
             image: AssetImage('assets/images/menu_background.png'),
           ),
         ),
-        child: Stack( // 각각의 버튼을 임의로 위치 지정을 하기위해 Stack + Mediaquery를 사용하여 배치 하였음
+        child: Stack(
+          // 각각의 버튼을 임의로 위치 지정을 하기위해 Stack + Mediaquery를 사용하여 배치 하였음
           children: [
             Positioned(
               right: 20,
@@ -48,7 +53,8 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
               ),
             ),
-            Positioned( // 각각의 요소를 Positioned으로 지정하였고, Device의 사이즈에 맞게 자리를 배치하기위해 반응형 사용
+            Positioned(
+              // 각각의 요소를 Positioned으로 지정하였고, Device의 사이즈에 맞게 자리를 배치하기위해 반응형 사용
               left: MediaQuery.of(context).size.width * 0.1,
               top: MediaQuery.of(context).size.height * 0.03,
               child: GestureDetector(
@@ -59,14 +65,18 @@ class _MenuScreenState extends State<MenuScreen> {
                 },
                 child: Column(
                   children: [
-                    Image.asset('assets/images/mmd_camera.png'), // 각각의 클릭할 메뉴의 아이콘 이미지
+                    Image.asset('assets/images/mmd_camera.png'),
+                    // 각각의 클릭할 메뉴의 아이콘 이미지
                     SizedBox(
                       height: 5,
                     ),
                     Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: CustomColor().yellow(),
+                      ),
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(5),
-                      color: CustomColor().yellow(),
+                      padding: EdgeInsets.all(8),
                       child: Text(
                         '카메라 촬영',
                         style: TextStyle(
@@ -98,9 +108,12 @@ class _MenuScreenState extends State<MenuScreen> {
                       height: 5,
                     ),
                     Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: CustomColor().yellow(),
+                      ),
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(5),
-                      color: CustomColor().yellow(),
+                      padding: EdgeInsets.all(8),
                       child: Text(
                         '나만의 사전',
                         style: TextStyle(
@@ -130,9 +143,12 @@ class _MenuScreenState extends State<MenuScreen> {
                       height: 5,
                     ),
                     Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: CustomColor().yellow(),
+                      ),
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(5),
-                      color: CustomColor().yellow(),
+                      padding: EdgeInsets.all(8),
                       child: Text(
                         '퀴즈! 퀴즈!',
                         style: TextStyle(
@@ -162,9 +178,12 @@ class _MenuScreenState extends State<MenuScreen> {
                       height: 5,
                     ),
                     Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: CustomColor().yellow(),
+                      ),
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(5),
-                      color: CustomColor().yellow(),
+                      padding: EdgeInsets.all(8),
                       child: Text(
                         '나의 프로필',
                         style: TextStyle(
