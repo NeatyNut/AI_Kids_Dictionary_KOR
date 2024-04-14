@@ -1,4 +1,9 @@
-1. 동영상 - 현종님이 편집한거 그대로 넣으면 되고
+## App sample
+![제목 없는 동영상 - Clipchamp로 제작](https://github.com/choikanghoon/mmd/assets/149549379/edc486ee-4c2e-4a9f-b759-f547d3c16688)
+![제목 없는 동영상 - Clipchamp로 제작 (1)](https://github.com/choikanghoon/mmd/assets/149549379/16573c26-88d8-4026-8f6c-7dbdfd2207a5)
+
+
+
 ## Project Background  
 ![4](https://github.com/choikanghoon/mmd/assets/149550120/53304af5-e5e3-41be-a6f2-a91e7f95d918)
 ![5](https://github.com/choikanghoon/mmd/assets/149550120/397cc201-6a84-47c0-953e-8633b8e0f4cd)
