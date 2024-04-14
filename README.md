@@ -24,6 +24,9 @@ This process can eliminate any aversion to learning Hangul and help children for
 ## APP UI / UX
 ![mmd_design](https://github.com/choikanghoon/mmd/assets/149554171/8ef2c56b-5682-4f38-bf5b-63220272ef28)
 
+## Skill Set
+![skill](https://github.com/choikanghoon/AI_Kids_Dictionary_KOR/assets/149554171/cd8f11ca-7e46-460f-843f-84590c6309d2)
+
 
 ## AI Model(Clip, Gemini+RAG)
 
