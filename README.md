@@ -25,7 +25,7 @@ This process can eliminate any aversion to learning Hangul and help children for
 ![mmd_design](https://github.com/choikanghoon/mmd/assets/149554171/8ef2c56b-5682-4f38-bf5b-63220272ef28)
 
 
-## AI Model(Clip, TTS, Gemini+RAG)
+## AI Model(Clip, Gemini+RAG)
 
 ### Clip
 #### Clip Model Test Result : 129 Class / Accuracy 86.7%
