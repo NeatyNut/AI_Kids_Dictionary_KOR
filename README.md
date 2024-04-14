@@ -1,16 +1,4 @@
-# mmd
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. 동영상 - 현종님이 편집한거 그대로 넣으면 되고
+2. 정의 - 앱배경 + 컨셉 머시기 머시기 깽이 - 영현님 PPT에 있는거 정리해서 넣으면되고
+3. 모델 ( 기술스택 등 ) Flutter Server Model 조직도 등등 - 민기님이 정리한내용 좀 스크립트를 넣으면되고 + 프론트엔드 이야기 정도?
+4. 셋팅에 필요한 요소 - 무슨 API를 썼고 무슨 값을 넣어야하는지 대충 (코드에있는 내용 대충 써주기)
