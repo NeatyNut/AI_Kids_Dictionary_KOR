@@ -27,19 +27,24 @@ This process can eliminate any aversion to learning Hangul and help children for
 
 ### Clip
 #### Clip Model Test Result : 129 Class / Accuracy 86.7%
-- Experiment Note
+- experimental data : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/clip/model_test/%ED%81%B4%EB%A6%BD%20%EB%AA%A8%EB%8D%B8%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EA%B2%B0%EA%B3%BC.csv)
+- test_data : [Click](https://github.com/choikanghoon/mmd/tree/main/_AI_model/clip/model_test/data)
+- note : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/clip/clip%20%EC%97%B0%EA%B5%AC%EC%9A%A9.ipynb)
 ![clip_result](_AI_model/clip_result.png)
 
-
 #### ★ How Can We use well, Select well-learned English words
-- experimental data : [Likn](https://github.com/choikanghoon/mmd/blob/main/_AI_model/clip/eng_crawling/eng_crawling_result.csv)
+- experimental data : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/clip/eng_crawling/eng_crawling_result.csv)
+- note : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/clip/eng_crawling/crawling.ipynb)
 ![image](https://github.com/choikanghoon/mmd/assets/89675001/46c918bb-1436-43e3-9c64-d02f76fdf916)
 
 ### RAG
 #### RAG + Gemini Result
+- note : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/rag/RAG%20%EC%97%B0%EA%B5%AC%EC%9A%A9.ipynb)
+- book_txt : [Click](https://github.com/choikanghoon/mmd/tree/main/_AI_model/rag/book_data/book_txt)
 ![rag_result](_AI_model/rag_result.png)
 
 ##### ★ Vector DB 구조
+- DB : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/rag/book_data/chroma.sqlite3)
 ![rag_vectordb](_AI_model/rag_vectordb.png)
 
 ##### ★ Prompt Engineering
