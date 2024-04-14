@@ -1,4 +1,8 @@
-## App sample
+## Team Members
+![image](https://github.com/choikanghoon/mmd/assets/149554171/c80ec1aa-2de3-463d-b846-3973167e9fdf)
+
+
+## App Sample
 ![제목 없는 동영상 - Clipchamp로 제작](https://github.com/choikanghoon/mmd/assets/149549379/edc486ee-4c2e-4a9f-b759-f547d3c16688)
 ![제목 없는 동영상 - Clipchamp로 제작 (1)](https://github.com/choikanghoon/mmd/assets/149549379/16573c26-88d8-4026-8f6c-7dbdfd2207a5)
 
@@ -82,11 +86,11 @@ context:
 """
 ```
 
-#### AI reference
+#### AI Reference
 - Clip : [Paper](https://arxiv.org/abs/2103.00020)
 - RAG : [Paper](https://arxiv.org/pdf/2005.11401)
 
-## How to use(Setting reference)
+## How to use(Setting Reference)
 - setting.dart : [Click](https://github.com/choikanghoon/mmd/blob/main/lib/back_module/setting.dart)
 ![setting방법](https://github.com/choikanghoon/mmd/assets/89675001/ca403bdb-362f-4b49-b745-c4061cede0cf)
 
