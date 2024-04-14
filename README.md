@@ -1,6 +1,18 @@
 1. 동영상 - 현종님이 편집한거 그대로 넣으면 되고
 2. 프로젝트 배경 및 개발 목적
-   
+## Project Background  
+![4](https://github.com/choikanghoon/mmd/assets/149550120/53304af5-e5e3-41be-a6f2-a91e7f95d918)
+![5](https://github.com/choikanghoon/mmd/assets/149550120/397cc201-6a84-47c0-953e-8633b8e0f4cd)
+
+The COVID-19 pandemic that began in 2020 has reduced the opportunities for children to be exposed to language, resulting in delays in children's language development. However, as child language development plays a crucial role in children's communication skills and interaction, we aimed to develop an app that can provide children with various language stimuli and contribute to the development of their language abilities.
+
+## Development Purpose
+![6](https://github.com/choikanghoon/mmd/assets/149550120/2bb61a0b-428c-4042-a98b-dcaf14908e90)
+
+
+Through the app, children can become familiar with Korean alphabet (Hangul) from an early age, which can prevent the decline in literacy skills as they grow older. Additionally, the app can help 4 to 7-year-old children, who are naturally curious, to develop a self-directed learning approach by using the app to satisfy their curiosity.
+This process can eliminate any aversion to learning Hangul and help children form familiarity with the Korean alphabet.
+
 4. 앱 디자인
 ![mmd_design](https://github.com/choikanghoon/mmd/assets/149554171/8ef2c56b-5682-4f38-bf5b-63220272ef28)
 
