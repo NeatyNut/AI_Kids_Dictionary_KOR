@@ -49,6 +49,7 @@ We were able to create a quiz generation ai that significantly reduced Hallucina
 ##### ★ Vector DB 구조
 VectorDB was used as an index for children's books.
 - DB : [Click](https://github.com/choikanghoon/mmd/blob/main/_AI_model/rag/book_data/chroma.sqlite3)
+
 ![model_ vectorDB](https://github.com/choikanghoon/mmd/assets/149554171/b31548b4-d14d-4341-9357-15e770cde4d5)
 
 
