@@ -21,8 +21,6 @@ This process can eliminate any aversion to learning Hangul and help children for
 ![mmd_design](https://github.com/choikanghoon/mmd/assets/149554171/8ef2c56b-5682-4f38-bf5b-63220272ef28)
 
 
-5. 모델 ( 기술스택 등 ) Flutter Server Model 조직도 등등 - 민기님이 정리한내용 좀 스크립트를 넣으면되고 + 프론트엔드 이야기 정도?
-
 ## AI Model(Clip, TTS, Gemini+RAG)
 
 ### Clip
