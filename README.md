@@ -1,6 +1,6 @@
 ## 발표영상
-- 전체발표 : [클릭하기](https://www.youtube.com/watch?v=fQPFD3comX4)
-- 본인파트(AI발표) : [클릭하기](https://www.youtube.com/watch?v=fQPFD3comX4&list=PLv6H9ngYdJbJljjBXDwLQTrDLuFXLLMov&index=9&t=230s)
+- 전체발표 : [유튜브로 시청하기](https://www.youtube.com/watch?v=fQPFD3comX4)
+- 본인파트(AI발표) : [유튜브로 시청하기](https://www.youtube.com/watch?v=fQPFD3comX4&list=PLv6H9ngYdJbJljjBXDwLQTrDLuFXLLMov&index=9&t=230s)
 
 ## Team Members
 ![image](https://github.com/choikanghoon/mmd/assets/149554171/c80ec1aa-2de3-463d-b846-3973167e9fdf)
