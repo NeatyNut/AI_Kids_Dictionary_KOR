@@ -1,6 +1,7 @@
 ## 발표영상
 - 전체발표 : [유튜브로 시청하기](https://www.youtube.com/watch?v=fQPFD3comX4)
 - 본인파트(AI발표) : [유튜브로 시청하기](https://www.youtube.com/watch?v=fQPFD3comX4&list=PLv6H9ngYdJbJljjBXDwLQTrDLuFXLLMov&index=9&t=230s)
+- 발표자료 : [바로가기](https://github.com/NeatyNut/AI_Kids_Dictionary_KOR/blob/main/_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C/%EC%95%84%EC%9D%B4%ED%8E%A0%ED%86%A4%20%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C_(%EC%A3%BC)%EC%94%A8%EC%95%A4%EC%8A%A4%ED%84%B0%EB%94%94.pdf)
 
 ## Team Members
 ![image](https://github.com/choikanghoon/mmd/assets/149554171/c80ec1aa-2de3-463d-b846-3973167e9fdf)
